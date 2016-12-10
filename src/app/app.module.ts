@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent, NavMenuComponent, AppRoutingModule } from './common';
+import { HeaderComponent, NavMenuComponent, HomeComponent, AppRoutingModule } from './common';
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
+import { LoginComponent, RegisterComponent } from './login/';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
     ItemsComponent,
     FeaturedItemComponent,
     OtherItemsComponent,
-    FeaturedOtherItemComponent
+    FeaturedOtherItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

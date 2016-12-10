@@ -44,3 +44,6 @@ body {
 *:focus {
   outline: none;
 }
+.material-icons {
+  vertical-align: top;
+}
