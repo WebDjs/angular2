@@ -4,15 +4,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent, NavMenuComponent, AppRoutingModule } from './common';
+import { ItemsComponent, FeaturedItemComponent } from './items';
+import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    NavMenuComponent,
+    ItemsComponent,
+    FeaturedItemComponent,
+    OtherItemsComponent,
+    FeaturedOtherItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
