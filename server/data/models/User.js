@@ -1,23 +1,12 @@
-var mongoose = require('mongoose'),
-    encryption = require('../../utilities/encryption');
-
-var requiredMessage = '{PATH} is required';
-var defaultAvatar = 'https://ninjageisha.files.wordpress.com/2012/08/ninja-tadaa.jpg';
+const mongoose = require('mongoose'),
+    encryption = require('../../utilities/encryption'),
+    requiredMessage = '{PATH} is required';
 
 module.exports.init = function() {
-    var userSchema = mongoose.Schema({
+    let userSchema = mongoose.Schema({
         username: { type: String, required: requiredMessage, unique: true },
         salt: String,
-        hashPass: String,
-        firstName: { type: String, required: requiredMessage},
-        lastName: { type: String, required: requiredMessage},
-        phoneNumber: String,
-        email: { type: String, required: requiredMessage},
-        initiatives: [{
-            initiative: String,
-            season: String
-        }],
-        avatar: { type: String, default: defaultAvatar }
+        hashPass: String
     });
 
     userSchema.method({
@@ -31,7 +20,5 @@ module.exports.init = function() {
         }
     });
 
-    var User = mongoose.model('User', userSchema);
+    let User = mongoose.model('User', userSchema);
 };
-
-

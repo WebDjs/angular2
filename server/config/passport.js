@@ -1,43 +1,22 @@
-var passport = require('passport'),
-    LocalPassport = require('passport-local'),
-    User = require('mongoose').model('User');
-
-module.exports = function() {
-    passport.use(new LocalPassport(function(username, password, done) {
-        User.findOne({ username: username }).exec(function(err, user) {
-            if (err) {
-                console.log('Error loading user: ' + err);
-                return;
-            }
-
-            if (user && user.authenticate(password)) {
-                return done(null, user);
-            }
-            else {
-                return done(null, false);
-            }
-        })
-    }));
-
-    passport.serializeUser(function(user, done) {
-        if (user) {
-            return done(null, user._id);
-        }
-    });
-
-    passport.deserializeUser(function(id, done) {
-        User.findOne({_id: id}).exec(function(err, user) {
-            if (err) {
-                console.log('Error loading user: ' + err);
-                return;
-            }
-
-            if (user) {
-                return done(null, user);
-            }
-            else {
-                return done(null, false);
-            }
-        })
-    });
+const JwtStrategy = require('passport-jwt').Strategy;
+ 
+// load up the user model
+const User = require('../data/models/User');
+const config = require('./database'); // get db config file
+ 
+module.exports = function(passport) {
+  let opts = {};
+  opts.secretOrKey = config.secret;
+  passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+    User.findOne({id: jwt_payload.id}, function(err, user) {
+          if (err) {
+              return done(err, false);
+          }
+          if (user) {
+              done(null, user);
+          } else {
+              done(null, false);
+          }
+      });
+  }));
 };
