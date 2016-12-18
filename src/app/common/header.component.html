@@ -3,7 +3,12 @@
     <span class="mdl-layout-title"><a [routerLink]="['/home']"><i class="material-icons">home</i> {{title}}</a></span>
     <app-nav-menu></app-nav-menu>
     <div class="mdl-layout-spacer"></div>
-    <a class="mdl-navigation__link" [routerLink]="['/register']">Register</a>
-    <a class="mdl-navigation__link" [routerLink]="['/login']">Login</a>
+      <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/register']">Register</a>
+      <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/login']">Login</a>
+    <div *ngIf="existingUser">
+      <button (click)="logout()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Logout
+      </button>
+    </div>
   </div>
 </header>

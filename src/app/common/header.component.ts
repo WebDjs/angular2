@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { UsersService, AuthenticationService } from './services/';
+import { User } from './models/';
 
 @Component({
     selector: 'app-header',
@@ -6,4 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
     @Input() title: string;
+    @Input() existingUser: User;
+
+    constructor(private authService: AuthenticationService) {}
+
+    logout() {
+        this.authService.logout();
+    }
  }

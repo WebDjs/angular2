@@ -14,7 +14,10 @@ import {
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
-import { AlertService, AuthenticationService } from './common/services/';
+import {
+  AlertService,
+  AuthenticationService,
+  UsersService } from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
 
 @NgModule({
@@ -38,7 +41,11 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AlertService, AuthenticationService],
+  providers: [
+    AlertService,
+    AuthenticationService,
+    UsersService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

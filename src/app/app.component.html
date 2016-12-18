@@ -1,5 +1,5 @@
 <div appMdl class="content mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <app-header [title]="title"></app-header>
+    <app-header [existingUser]="currentUser" [title]="title"></app-header>
     <main class="mdl-layout__content page-content">
         <app-alert></app-alert>
         <router-outlet></router-outlet>
