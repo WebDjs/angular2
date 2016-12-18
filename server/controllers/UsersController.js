@@ -6,43 +6,45 @@ let encryption = require('../utilities/encryption'),
 
 let CONTROLLER_NAME = 'users';
 
-module.exports = {
-    postRegister: function(req, res) {
-        let newUserData = req.body;
+function postRegister(req, res) {
+    let newUserData = req.body;
 
-        newUserData.salt = encryption.generateSalt();
-        newUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
-        users.create(newUserData, function(err, user) {
-            if (err) {
-                console.log('Failed to register new user: ' + err);
-                return res.json({success: false, msg: err });
+    newUserData.salt = encryption.generateSalt();
+    newUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
+    users.create(newUserData, function (err, user) {
+        if (err) {
+            return res.status(409).json({ success: false, msg: { code: err.code, message: err.message }});
+        } else {
+            return postAuthenticate(req, res);
+        }
+    });
+}
+
+function postAuthenticate(req, res) {
+    User.findOne({
+        username: req.body.username
+    }, function (err, user) {
+        if (err) {
+            throw err;
+        }
+
+        if (!user) {
+            res.status(401).send({ err: 'Authentication failed. User not found.' });
+        } else {
+            // check if password matches
+            if (user.authenticate(req.body.password)) {
+                // if user is found and password is right create a token
+                let token = jwt.encode(user, config.secret);
+                // return the information including token as JSON
+                return res.json({ success: true, token: 'JWT ' + token });
             } else {
-                console.log('User created ' + user);
-                return res.json({success: true, msg: 'User created successfully.'});
+                res.status(401).send({ err: 'Authentication failed. Wrong password.' });
             }
-        });
-    },
-    postAuthenticate: function(req, res) {
-        User.findOne({
-            username: req.body.username
-        }, function(err, user) {
-            if (err){
-                throw err;
-            }
-        
-            if (!user) {
-                res.status(401).send({err: 'Authentication failed. User not found.'});
-            } else {
-                // check if password matches
-                if (user.authenticate(req.body.password)) {
-                    // if user is found and password is right create a token
-                    let token = jwt.encode(user, config.secret);
-                    // return the information including token as JSON
-                    return res.json({success: true, token: 'JWT ' + token});
-                } else {
-                    res.status(401).send({err: 'Authentication failed. Wrong password.'});
-                }
-            }
-        });
-    }
+        }
+    });
+}
+
+module.exports = {
+    postRegister,
+    postAuthenticate
 };
