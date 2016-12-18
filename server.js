@@ -43,8 +43,9 @@ require('./server/config/passport')(passport);
 var apiRoutes = express.Router();
 
 let usersController = require('./server/controllers/UsersController');
-// create a new user account (POST http://localhost:8080/api/signup)
+// create a new user account (POST http://localhost:3000/api/signup)
 apiRoutes.post('/signup', usersController.postRegister);
+// log in and get a token (POST http://localhost:3000/api/authenticate)
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
  
 // connect the api routes under /api/*
