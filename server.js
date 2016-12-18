@@ -1,13 +1,20 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const passport = require('passport');
-const config = require('./server/config/database'); // get db config file
-const User = require('./server/data/models/User'); // get the mongoose model
-const port = process.env.PORT || 3000;
-const jwt = require('jwt-simple');
+const express = require('express'),
+ app = express(),
+ bodyParser = require('body-parser'),
+ morgan = require('morgan'),
+ mongoose = require('mongoose'),
+ passport = require('passport'),
+ config = require('./server/config/database'), // get db config file
+ User = require('./server/data/models/User'), // get the mongoose model
+ port = process.env.PORT || 3000,
+ jwt = require('jwt-simple');
+
+// Allow CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));

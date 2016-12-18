@@ -4,10 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent, NavMenuComponent, HomeComponent, AppRoutingModule } from './common';
+import {
+  HeaderComponent,
+  NavMenuComponent,
+  HomeComponent,
+  AppRoutingModule,
+  AlertComponent
+ } from './common';
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
+import { AlertService, AuthenticationService } from './common/services/';
+import { MDLUpgradeElementDirective } from './common/directives/';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,9 @@ import { LoginComponent, RegisterComponent } from './login/';
     FeaturedOtherItemComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    MDLUpgradeElementDirective,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +38,7 @@ import { LoginComponent, RegisterComponent } from './login/';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AlertService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

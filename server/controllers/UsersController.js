@@ -31,7 +31,7 @@ module.exports = {
             }
         
             if (!user) {
-                res.send({success: false, msg: 'Authentication failed. User not found.'});
+                res.status(401).send({err: 'Authentication failed. User not found.'});
             } else {
                 // check if password matches
                 if (user.authenticate(req.body.password)) {
@@ -40,7 +40,7 @@ module.exports = {
                     // return the information including token as JSON
                     return res.json({success: true, token: 'JWT ' + token});
                 } else {
-                    res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+                    res.status(401).send({err: 'Authentication failed. Wrong password.'});
                 }
             }
         });

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MDLUpgradeElementDirective } from './common/directives/';
+import { AlertComponent } from './common/';
 
 @Component({
   selector: 'app-root',
