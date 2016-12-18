@@ -45,7 +45,7 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     AlertService,
     AuthenticationService,
     UsersService
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
