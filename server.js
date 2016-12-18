@@ -7,7 +7,6 @@ const express = require('express'),
  config = require('./server/config/database'), // get db config file
  User = require('./server/data/models/User'), // get the mongoose model
  port = process.env.PORT || 3000,
- jwt = require('jwt-simple');
 
 // Allow CORS
 app.use(function(req, res, next) {
@@ -33,14 +32,13 @@ app.get('/', function(req, res) {
 
 // connect to database
 mongoose.connect(config.database);
-let UserModel = require('./server/data/models/User');
 UserModel.init();
  
 // pass passport for configuration
 require('./server/config/passport')(passport);
  
 // bundle our routes
-var apiRoutes = express.Router();
+let apiRoutes = express.Router();
 
 let usersController = require('./server/controllers/UsersController');
 // create a new user account (POST http://localhost:3000/api/signup)
