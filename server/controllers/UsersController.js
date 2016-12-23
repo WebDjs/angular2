@@ -4,8 +4,6 @@ let encryption = require('../utilities/encryption'),
     User = require('mongoose').model('User'),
     config = require('../config/database');
 
-let CONTROLLER_NAME = 'users';
-
 function postRegister(req, res) {
     let newUserData = req.body;
 

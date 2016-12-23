@@ -6,7 +6,7 @@ const express = require('express'),
  passport = require('passport'),
  config = require('./server/config/database'), // get db config file
  User = require('./server/data/models/User'), // get the mongoose model
- port = process.env.PORT || 3000,
+ port = process.env.PORT || 3000;
 
 // Allow CORS
 app.use(function(req, res, next) {
