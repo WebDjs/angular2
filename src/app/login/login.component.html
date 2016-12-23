@@ -6,17 +6,17 @@
 			</div>
 			<div class="mdl-card__supporting-text">
 				<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !username.valid }">
 						<input class="mdl-textfield__input form-control" type="text" id="username" name="model.username" [(ngModel)]="model.username"
 							#username="ngModel" required />
 						<label class="mdl-textfield__label" for="username">Username</label>
-						<div *ngIf="f.submitted && !username.valid"><span class="mdl-textfield__error">Username is required!</span></div>
+						<div *ngIf="!username.valid && username.touched"><span class="mdl-textfield__error">Username is required!</span></div>
 					</div>
 					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': f.submitted && !model.password.valid }" >
 						<input class="mdl-textfield__input form-control" type="password" id="userpass" name="model.password" [(ngModel)]="model.password"
 							#password="ngModel" required />
 						<label class="mdl-textfield__label" for="userpass">Password</label>
-						<div *ngIf="f.submitted && !password.valid"><span class="mdl-textfield__error">Password is required!</span></div>
+						<div *ngIf="!password.valid && password.touched"><span class="mdl-textfield__error">Password is required!</span></div>
 					</div>
 					<div class="mdl-card__actions mdl-card--border form-group">
 						<div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
