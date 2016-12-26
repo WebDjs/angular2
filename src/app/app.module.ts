@@ -10,14 +10,17 @@ import {
   HomeComponent,
   AppRoutingModule,
   AlertComponent
- } from './common';
+} from './common';
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
+import { DiveLogComponent } from './dive-logs/dive-log.component';
 import {
   AlertService,
   AuthenticationService,
-  UsersService } from './common/services/';
+  UsersService,
+  DiveLogsService
+} from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
 
 @NgModule({
@@ -26,6 +29,7 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     HeaderComponent,
     NavMenuComponent,
     ItemsComponent,
+    DiveLogComponent,
     FeaturedItemComponent,
     OtherItemsComponent,
     FeaturedOtherItemComponent,
@@ -44,7 +48,8 @@ import { MDLUpgradeElementDirective } from './common/directives/';
   providers: [
     AlertService,
     AuthenticationService,
-    UsersService
+    UsersService,
+    DiveLogsService
   ],
   bootstrap: [AppComponent]
 })
