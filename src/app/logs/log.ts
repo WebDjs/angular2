@@ -1,4 +1,4 @@
-export interface IDiveLog {
+export interface ILog {
     id: number;
     location: string;
     depth: number;

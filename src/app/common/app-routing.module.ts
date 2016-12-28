@@ -5,7 +5,7 @@ import { ItemsComponent, FeaturedItemComponent } from '../items/';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from '../other-items/';
 import { LoginComponent, RegisterComponent } from '../login/';
 import { AuthGuard } from '../common/guards/';
-import { DiveLogComponent } from '../dive-logs/dive-log.component';
+import { LogComponent } from '../logs/log.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'items', component: ItemsComponent, children: [
     { path: 'featured/:id', component: FeaturedItemComponent }
   ] },
-  { path: 'dive-logs', component: DiveLogComponent },
+  { path: 'logs', component: LogComponent },
   { path: 'otheritems', canActivate: [AuthGuard], component: OtherItemsComponent, children: [
     { path: 'featured/:id', component: FeaturedOtherItemComponent }
   ] },

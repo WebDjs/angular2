@@ -14,12 +14,12 @@ import {
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
-import { DiveLogComponent } from './dive-logs/dive-log.component';
+import { LogComponent } from './logs/log.component';
 import {
   AlertService,
   AuthenticationService,
   UsersService,
-  DiveLogsService
+  LogsService
 } from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
 
@@ -29,7 +29,7 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     HeaderComponent,
     NavMenuComponent,
     ItemsComponent,
-    DiveLogComponent,
+    LogComponent,
     FeaturedItemComponent,
     OtherItemsComponent,
     FeaturedOtherItemComponent,
@@ -49,7 +49,7 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     AlertService,
     AuthenticationService,
     UsersService,
-    DiveLogsService
+    LogsService
   ],
   bootstrap: [AppComponent]
 })

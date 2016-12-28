@@ -4,25 +4,25 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 
-import {IDiveLog } from 'app/dive-logs/dive-log';
+import { ILog } from 'app/logs/log';
 
 @Injectable()
-export class DiveLogsService {
-    private _diveLogsUrl = 'app/common/dive-logs.example.json';
+export class LogsService {
+    private _logsUrl = 'app/common/logs.example.json';
 
     constructor(private _http: Http) { }
 
-    getAll(): Observable<IDiveLog[]> {
-        return this._http.get(this._diveLogsUrl)
-            .map((response: Response) => <IDiveLog[]> response.json())
-            .do(data => console.log('All: ' +  JSON.stringify(data)))
+    getAll(): Observable<ILog[]> {
+        return this._http.get(this._logsUrl)
+            .map((response: Response) => <ILog[]>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    getById(id: number): Observable<IDiveLog> {
+    getById(id: number): Observable<ILog> {
         //TODO: refactor to request the item directly
         return this.getAll()
-            .map((diveLogs: IDiveLog[]) => diveLogs.find(p => p.id === id));
+            .map((diveLogs: ILog[]) => diveLogs.find(p => p.id === id));
     }
 
     private handleError(error: Response) {
