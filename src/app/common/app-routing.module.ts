@@ -6,6 +6,7 @@ import { OtherItemsComponent, FeaturedOtherItemComponent } from '../other-items/
 import { LoginComponent, RegisterComponent } from '../login/';
 import { AuthGuard } from '../common/guards/';
 import { LogComponent } from '../logs/log.component';
+import { UserComponent } from '../user/';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'logs', component: LogComponent },
   { path: 'otheritems', canActivate: [AuthGuard], component: OtherItemsComponent, children: [
     { path: 'featured/:id', component: FeaturedOtherItemComponent }
-  ] },
+  ]
+  },
+  { path: 'userprofile', component: UserComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];
 

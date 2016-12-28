@@ -1,0 +1,17 @@
+img{
+    height:300px;
+    width:200px;
+}
+#left{
+    width:45%;
+    float:left;
+}
+#right{
+    padding-top:100px;
+    width:45%;
+    float:right;
+}
+
+#right span{
+    font-weight: bold;
+}

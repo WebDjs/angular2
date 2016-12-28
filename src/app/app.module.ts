@@ -22,6 +22,7 @@ import {
   LogsService
 } from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MDLUpgradeElementDirective } from './common/directives/';
     RegisterComponent,
     HomeComponent,
     MDLUpgradeElementDirective,
-    AlertComponent
+    AlertComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
