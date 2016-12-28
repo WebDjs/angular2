@@ -17,13 +17,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "mobile": false,
-      "styles": [
-        "https://code.getmdl.io/1.2.1/material.indigo-pink.min.css",
-        "https://fonts.googleapis.com/icon?family=Material+Icons",
-        "assets/css/app.css",
-        "styles.css"
-      ],
-      "scripts": ["https://code.getmdl.io/1.2.1/material.min.js"],
+      "styles": [],
+      "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
