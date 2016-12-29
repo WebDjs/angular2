@@ -6,7 +6,7 @@ import { OtherItemsComponent, FeaturedOtherItemComponent } from '../other-items/
 import { LoginComponent, RegisterComponent } from '../login/';
 import { AuthGuard } from '../common/guards/';
 import { LogComponent } from '../logs/log.component';
-import { UserComponent } from '../user/';
+import { UserComponent, UserEditComponent } from '../user/';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,6 +22,7 @@ const routes: Routes = [
   ]
   },
   { path: 'userprofile', component: UserComponent },
+  { path: 'userprofileedit', component: UserEditComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];
 

@@ -1,0 +1,10 @@
+<div id="left">
+    <h3>Hello {{this.userData.userName}}</h3>
+    <img src="{{this.userData.image}}" />
+</div>
+<div id="right">
+    <p><span>First name:</span> <input [(ngModel)]="userData.firstName" /></p>
+    <p><span>Last name:</span> <input [(ngModel)]="userData.lastName" /></p>
+    <p><span>Description:</span> <input [(ngModel)]="userData.description" /></p>
+    <button (click)="submit()"> Submit! </button>
+</div>

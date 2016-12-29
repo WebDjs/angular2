@@ -2,6 +2,7 @@
   width:720px;
   height:400px;
   overflow:hidden;
+  border-radius:15px;
 }
 
 #gallery .slides{
@@ -17,4 +18,9 @@
     list-style-type:none;
     width:720px;
     height:400px;
+}
+
+#gallery img{
+  width:720px;
+  height:400px;
 }

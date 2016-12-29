@@ -23,6 +23,7 @@ import {
 } from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
+import { UserEditComponent } from './user/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserComponent } from './user/user.component';
     HomeComponent,
     MDLUpgradeElementDirective,
     AlertComponent,
-    UserComponent
+    UserComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,13 @@ import { Component, OnInit, trigger, state, style, transition, animate, keyframe
     animations: [
         trigger('focusPanel', [
             state('moveOne', style({
-                marginLeft: '-720px'
+                marginLeft: '0px'
             })),
             state('moveTwo', style({
-                marginLeft: '-1440px'
+                marginLeft: '-720px'
             })),
             state('moveThree', style({
-                marginLeft: '-2160px'
+                marginLeft: '-1440px'
             })),
             state('reset', style({
                 marginLeft: '0px'
