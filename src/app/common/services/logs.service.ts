@@ -4,7 +4,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
 
-import { ILog } from 'app/logs/log';
+import { ILog } from 'app/common/models';
 
 @Injectable()
 export class LogsService {

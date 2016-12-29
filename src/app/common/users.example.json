@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "userName": "HashTagDeep",
+        "firstName": "Ivan",
+        "logs": [
+            {
+                "id": 1,
+                "site": "The Blue Lagoon",
+                "depth": 32,
+                "time": 40,
+                "sightings": [
+                    "Turtle"
+                ]
+            }
+        ]
+    }
+]
