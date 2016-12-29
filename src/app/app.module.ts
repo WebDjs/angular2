@@ -15,6 +15,7 @@ import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
 import { LogComponent } from './logs/log.component';
+import { LocationComponent } from './locations/locations.component';
 import {
   AlertService,
   AuthenticationService,
@@ -35,6 +36,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     NavMenuComponent,
     ItemsComponent,
     LogComponent,
+    LocationComponent,
     FeaturedItemComponent,
     OtherItemsComponent,
     FeaturedOtherItemComponent,

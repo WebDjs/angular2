@@ -6,6 +6,7 @@ import { OtherItemsComponent, FeaturedOtherItemComponent } from '../other-items/
 import { LoginComponent, RegisterComponent } from '../login/';
 import { AuthGuard } from '../common/guards/';
 import { LogComponent } from '../logs/log.component';
+import { LocationComponent } from '../locations/locations.component';
 import { UserComponent, UserEditComponent } from '../user/';
 import { ContactUsComponent } from '../contact-us/';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'featured/:id', component: FeaturedItemComponent }
   ] },
   { path: 'logs', component: LogComponent },
+  { path: 'locations', component: LocationComponent },
   { path: 'otheritems', canActivate: [AuthGuard], component: OtherItemsComponent, children: [
     { path: 'featured/:id', component: FeaturedOtherItemComponent }
   ]

@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <h1>Dive Locations</h1>
+  <div class="row">
+    <div style="color: red" class="col-sm-4" *ngFor="let l of locations">
+      <h3>{{l.name}}</h3>
+      <div style="color: green" *ngFor="let site of l.sites">
+        <i>{{site.name}}</i>
+
+        <ul style="color: blue">
+            <li *ngFor="let s of site.sightings">{{ s }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>

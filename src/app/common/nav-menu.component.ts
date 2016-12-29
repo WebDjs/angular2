@@ -8,6 +8,7 @@ export class NavMenuComponent {
     links = {
         items: ['/items'],
         otherItems: ['/otheritems'],
-        logs: ['/logs']
+        logs: ['/logs'],
+        locations: ['/locations']
     };
 }
