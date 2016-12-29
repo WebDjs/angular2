@@ -7,6 +7,7 @@ import { LoginComponent, RegisterComponent } from '../login/';
 import { AuthGuard } from '../common/guards/';
 import { LogComponent } from '../logs/log.component';
 import { UserComponent, UserEditComponent } from '../user/';
+import { ContactUsComponent } from '../contact-us/';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   },
   { path: 'userprofile', component: UserComponent },
   { path: 'userprofileedit', component: UserEditComponent },
+  { path: 'contactus', component: ContactUsComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];
 

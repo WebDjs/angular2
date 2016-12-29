@@ -12,6 +12,12 @@ img{
     float:right;
 }
 
-#right span{
+#right>span{
+    font-weight: bold;
+    text-decoration:underline;
+    padding:3px;
+    border:1px solid black;
+}
+#right p span{
     font-weight: bold;
 }

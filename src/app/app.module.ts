@@ -24,6 +24,9 @@ import {
 import { MDLUpgradeElementDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { UserEditComponent } from './user/user-edit.component';
     MDLUpgradeElementDirective,
     AlertComponent,
     UserComponent,
-    UserEditComponent
+    UserEditComponent,
+    ContactUsComponent,
+    ContactDetailsComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

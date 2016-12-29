@@ -1,0 +1,14 @@
+#addressDetails{
+    width:48%;
+    float:left;
+}
+#map{
+    padding-top:100px;
+    width:48%;
+    float:right;
+    height:50%
+}
+
+#addressDetails span{
+    font-weight: bold;
+}
