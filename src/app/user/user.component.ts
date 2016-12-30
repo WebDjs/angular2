@@ -8,10 +8,10 @@ import { UserEditComponent } from './user-edit.component'
 })
 export class UserComponent implements OnInit {
 
-    constructor() { }
-    private userData: any = { userName: "TestUser", firstName: "John", lastName: "Doe", description: "this is my description", image:"http://www.utiladivecenter.com/sites/center.udc/files/master_diver.jpg"}
+  constructor() { }
+  private userData: any = { userName: "TestUser", firstName: "John", lastName: "Doe", description: "this is my description", image: "http://www.utiladivecenter.com/sites/center.udc/files/master_diver.jpg" }
 
-    ngOnInit() {
+  ngOnInit() {
 
   }
 

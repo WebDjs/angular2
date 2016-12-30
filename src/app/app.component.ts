@@ -1,13 +1,19 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, ViewEncapsulation } from '@angular/core';
 import { MDLUpgradeElementDirective } from './common/directives/';
 import { AlertComponent } from './common/';
 import { UsersService } from './common/services';
 import { User } from './common/models/';
+import 'material-design-lite/dist/material';
+import 'mdl-select-component/mdl-selectfield.min';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  encapsulation: ViewEncapsulation.None,
+  styles: [
+    require('material-design-lite/dist/material.min.css'),
+    require('mdl-select-component/mdl-selectfield.min.css') // for select input (optional)
+  ]
 })
 export class AppComponent implements OnInit, DoCheck {
   title = 'Site title';

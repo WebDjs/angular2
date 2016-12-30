@@ -1,6 +1,6 @@
 <header class="mdl-layout__header">
   <div class="mdl-layout__header-row">
-    <a class="mdl-navigation__link" [routerLink]="['/home']" [routerLinkActive]="['current-route']"><i class="material-icons">home</i> {{title}}</a>
+    <a class="mdl-navigation__link" [routerLink]="['/home']" [routerLinkActive]="['current-route']"><img src="assets/images/ic_home_white_24dp_1x.png"/> {{title}}</a>
     <app-nav-menu></app-nav-menu>
     <div class="mdl-layout-spacer"></div>
       <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/register']" [routerLinkActive]="['current-route']">Register</a>
