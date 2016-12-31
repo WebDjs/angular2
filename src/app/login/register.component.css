@@ -6,3 +6,17 @@
 	padding: 24px;
 	flex: none;
 }
+
+.custom-validation-error {
+    font-size: 12px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    color: #d50000;
+    position: absolute;
+    margin-top: 3px;
+    line-height: 18px;
+    display: block;
+}

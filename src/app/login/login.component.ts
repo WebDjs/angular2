@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.model = {
-            id: 0,
             username: '',
             password: ''
         };

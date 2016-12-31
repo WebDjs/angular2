@@ -22,7 +22,7 @@ import {
   UsersService,
   DataService
 } from './common/services/';
-import { MDLUpgradeElementDirective } from './common/directives/';
+import { MDLUpgradeElementDirective, EqualValidatorDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
 import { UserEditComponent } from './user/user-edit.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -44,6 +44,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     RegisterComponent,
     HomeComponent,
     MDLUpgradeElementDirective,
+    EqualValidatorDirective,
     AlertComponent,
     UserComponent,
     UserEditComponent,

@@ -22,7 +22,11 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
         this.model = {
             username: '',
-            password: ''
+            password: '',
+            confirmPassword: '',
+            email: '',
+            firstName: '',
+            lastName: ''
         };
 
         // reset login status
@@ -49,7 +53,6 @@ export class RegisterComponent implements OnInit {
 
     parseErrorMessage(message: string) {
         let duplicateField = message.substring((message.indexOf('index: ') + 6), (message.indexOf('dup ') - 3));
-        console.log(duplicateField);
         return duplicateField + ' is already taken';
     }
 }

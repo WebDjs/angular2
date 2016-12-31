@@ -6,17 +6,43 @@
 			</div>
 			<div class="mdl-card__supporting-text">
 				<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !firstName.valid }">
+						<input class="mdl-textfield__input form-control" type="text" id="fName" name="firstName" [(ngModel)]="model.firstName"
+							#fName="ngModel" minlength="2" />
+						<label class="mdl-textfield__label" for="fName">First name</label>
+						<div *ngIf="!fName.valid && fName.touched"><span class="mdl-textfield__error">First name must be at least 2 characters long.</span></div>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !lastName.valid }">
+						<input class="mdl-textfield__input form-control" type="text" id="lName" name="lastName" [(ngModel)]="model.lastName"
+							#lName="ngModel" minlength="2" />
+						<label class="mdl-textfield__label" for="lName">Last name</label>
+						<div *ngIf="!lName.valid && lName.touched"><span class="mdl-textfield__error">Last name must be at least 2 characters long.</span></div>
+					</div>
 					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !username.valid }">
-						<input class="mdl-textfield__input form-control" type="text" id="username" name="model.username" [(ngModel)]="model.username"
+						<input class="mdl-textfield__input form-control" type="text" id="username" name="username" [(ngModel)]="model.username"
 							#username="ngModel" required />
 						<label class="mdl-textfield__label" for="username">Username</label>
 						<div *ngIf="!username.valid && username.touched"><span class="mdl-textfield__error">Username is required!</span></div>
 					</div>
-					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !model.password.valid }" >
-						<input class="mdl-textfield__input form-control" type="password" id="userpass" name="model.password" [(ngModel)]="model.password"
-							#password="ngModel" required />
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !password.valid }" >
+						<input class="mdl-textfield__input form-control" id="userpass" type="password" name="password" [(ngModel)]="model.password"
+							#password="ngModel" required validateEqual="confirmPassword" reverse="true" />
 						<label class="mdl-textfield__label" for="userpass">Password</label>
 						<div *ngIf="!password.valid && password.touched"><span class="mdl-textfield__error">Password is required!</span></div>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield form-group" validateEqual="password" [ngClass]="{ 'has-error': !confirmPassword.valid }" >
+						<input class="mdl-textfield__input form-control" id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="model.confirmPassword"
+							#confirmPassword="ngModel" required validateEqual="password" />
+						<label class="mdl-textfield__label" for="confirmPassword">Confirm password</label>
+						<div *ngIf="!confirmPassword.valid">
+							<span class="custom-validation-error" [style.visibility]="!confirmPassword.valid && confirmPassword.touched ? 'visible' : 'hidden'">Passwords should match.</span>
+						</div>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !email.valid }">
+						<input class="mdl-textfield__input form-control" type="email" id="email" name="email" [(ngModel)]="model.email"
+							#email="ngModel" required pattern="[a-zA-Z0–9_.-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9.-]+" />
+						<label class="mdl-textfield__label" for="email">Email</label>
+						<div *ngIf="!email.valid && email.touched"><span class="mdl-textfield__error">Email is required and format should be <i>john@doe.com</i>.</span></div>
 					</div>
 					<div class="mdl-card__actions mdl-card--border form-group">
 						<div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
