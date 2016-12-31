@@ -25,7 +25,7 @@ const routes: Routes = [
   ]
   },
   { path: 'userprofile', component: UserComponent },
-  { path: 'userprofileedit', component: UserEditComponent },
+  { path: 'userprofileedit/:id', component: UserEditComponent },
   { path: 'contactus', component: ContactUsComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];

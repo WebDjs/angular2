@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserEditComponent } from './user-edit.component'
+import { DataService } from 'app/common/services/data.service';
+import { User } from 'app/common/models';
 
 @Component({
   selector: 'app-user',
@@ -7,12 +9,14 @@ import { UserEditComponent } from './user-edit.component'
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+  userData: User;
 
-  constructor() { }
-  private userData: any = { userName: "TestUser", firstName: "John", lastName: "Doe", description: "this is my description", image: "http://www.utiladivecenter.com/sites/center.udc/files/master_diver.jpg" }
-
+  constructor(private _dataService: DataService) { }
+  
   ngOnInit() {
-
+    this._dataService.getUserById(1)
+      .subscribe(success => {
+        this.userData = success;
+      });
   }
-
 }

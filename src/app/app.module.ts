@@ -20,7 +20,7 @@ import {
   AlertService,
   AuthenticationService,
   UsersService,
-  LogsService
+  DataService
 } from './common/services/';
 import { MDLUpgradeElementDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
@@ -61,7 +61,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     AlertService,
     AuthenticationService,
     UsersService,
-    LogsService
+    DataService
   ],
   bootstrap: [AppComponent]
 })

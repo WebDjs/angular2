@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { LogsService } from 'app/common/services/logs.service';
+import { DataService } from 'app/common/services/data.service';
 import 'rxjs/add/operator/map';
 import { ILog } from 'app/common/models';
 
@@ -11,7 +11,7 @@ export class LogComponent implements OnInit {
     logs: ILog[];
     errorMessage: string;
 
-    constructor(private _diveLogsService: LogsService) {
+    constructor(private _diveLogsService: DataService) {
     }
 
     ngOnInit(): void {

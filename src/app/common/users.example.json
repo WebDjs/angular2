@@ -1,11 +1,11 @@
 [
     {
         "id": 1,
-        "userName": "HashTagDeep",
+        "username": "HashTagDeep",
         "firstName": "Ivan",
         "lastName": "Petrov",
         "description": "This is my description",
-        "image": "http://www.utiladivecenter.com/sites/center.udc/files/master_diver.jpg",
+        "image": "master_diver.jpg",
         "logs": [
             {
                 "id": 1,

@@ -3,25 +3,33 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
-
-import { ILog, ILocation } from 'app/common/models';
+import { ILog, ILocation, User } from 'app/common/models';
 
 @Injectable()
-export class LogsService {
+export class DataService {
     private _logsUrl = 'app/common/logs.example.json';
     private _locationsUrl = 'app/common/locations.example.json';
+    private _usersUrl = 'app/common/users.example.json';
 
     constructor(private _http: Http) { }
 
-    // getAll(): Observable<T> {
-
-    // }
-
-    getAllLogs(): Observable<ILog[]> {
-        return this._http.get(this._logsUrl)
-            .map((response: Response) => <ILog[]>response.json())
+    private getAll<T>(url: string): Observable<T[]> {
+         return this._http.get(url)
+            .map((response: Response) => <T[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
+    }
+
+    private getById<T>(id: number, url: string): Observable<T> {
+
+        return this._http.get(url)
+            .map((response: Response) => <T>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    getAllLogs(): Observable<ILog[]> {
+       return this.getAll<ILog>(this._logsUrl);
     }
 
     getLogById(id: number): Observable<ILog> {
@@ -31,15 +39,14 @@ export class LogsService {
     }
 
     getAllLocations(): Observable<ILocation[]> {
-        return this._http.get(this._locationsUrl)
-                    .map((response: Response) => <ILocation[]>response.json())
-                    .do(data => console.log('All: ' + JSON.stringify(data)))
-                    .catch(this.handleError);
+        return this.getAll<ILocation>(this._locationsUrl);
     }
 
-    // mapResponse() {
-
-    // }
+    getUserById(id: number): Observable<User>{
+        console.log("get all",  this.getAll<User>(this._usersUrl))
+         return this.getAll<User>(this._usersUrl)
+            .map((users: User[]) => users.find(p => p.id === id));
+    }
 
     private handleError(error: Response) {
         // in a real world app, we may send the server to some remote logging infrastructure
