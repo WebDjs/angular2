@@ -19,7 +19,6 @@
       "mobile": false,
       "styles": [
         "./src/assets/css/material.min.css",
-        "./src/styles.css",
         "./src/assets/css/app.css"
       ],
       "scripts": [
