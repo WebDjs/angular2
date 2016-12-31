@@ -1,23 +1,27 @@
-img{
+img {
     height:300px;
     width:200px;
+    border-radius: 5%;
 }
-#left{
+
+#left {
     width:45%;
     float:left;
 }
-#right{
+
+#right {
     padding-top:100px;
     width:45%;
     float:right;
 }
 
-#right>span{
+#right>span {
     font-weight: bold;
     text-decoration:underline;
     padding:3px;
     border:1px solid black;
 }
-#right p span{
+
+#right p span {
     font-weight: bold;
 }
