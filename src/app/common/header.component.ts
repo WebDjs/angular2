@@ -6,7 +6,7 @@ import { User } from './models/';
     selector: 'app-header',
     templateUrl: './header.component.html'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     @Input() title: string;
     @Input() existingUser: User;
 

@@ -17,8 +17,14 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "mobile": false,
-      "styles": [],
-      "scripts": [],
+      "styles": [
+        "./src/assets/css/material.min.css",
+        "./src/styles.css",
+        "./src/assets/css/app.css"
+      ],
+      "scripts": [
+          "./src/assets/js/material.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

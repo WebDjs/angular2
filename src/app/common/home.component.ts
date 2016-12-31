@@ -26,30 +26,30 @@ import { Component, OnInit, trigger, state, style, transition, animate, keyframe
     ]
 })
 export class HomeComponent implements OnInit {
-    constructor() { }
-
     state: string = 'moveOne';
 
+    constructor() { }
+
     ngOnInit() {
-            setInterval(() => { this.changeSlide(); }, 3000);       
+            setInterval(() => { this.changeSlide(); }, 3000);
     }
 
     changeSlide() {
-        console.log(this.state);
+        // console.log(this.state);
         if (this.state === 'moveThree') {
             this.state = 'reset';
-        } 
+        }
 
-        if (this.state === 'moveTwo') {          
+        if (this.state === 'moveTwo') {
             this.state = 'moveThree';
-        } 
+        }
 
         if (this.state === 'moveOne') {
             this.state = 'moveTwo';
-        } 
+        }
 
         if (this.state === 'reset') {
             this.state = 'moveOne';
-        } 
+        }
     }
 }
