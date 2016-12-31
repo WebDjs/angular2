@@ -2,13 +2,13 @@
     <div id="left">
         <h3>Hello {{userData.username}}</h3>
         <h3><span>Username:</span> <input [(ngModel)]="userData.username" /></h3>
-        <p><span>Image:</span> <input [(ngModel)]="userData.image" /></p>
-        <img src="assets/images/{{userData.image}}" />
+        <!--<p><span>Image:</span> <input [(ngModel)]="userData.image" /></p>
+        <img src="assets/images/{{userData.image}}" />-->
     </div>
     <div id="right" *ngIf='userData'>
         <p><span>First name:</span> <input [(ngModel)]="userData.firstName" /></p>
         <p><span>Last name:</span> <input [(ngModel)]="userData.lastName" /></p>
-        <p><span>Description:</span> <input [(ngModel)]="userData.description" /></p>
+        <!--<p><span>Description:</span> <input [(ngModel)]="userData.description" /></p>-->
         <button (click)="submit()"> Submit! </button>
     </div>
 </div>

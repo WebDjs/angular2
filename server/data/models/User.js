@@ -6,7 +6,10 @@ module.exports.init = function() {
     let userSchema = mongoose.Schema({
         username: { type: String, required: requiredMessage, unique: true },
         salt: String,
-        hashPass: String
+        hashPass: String,
+        email: String,
+        firstName: String,
+        lastName: String
     });
 
     userSchema.method({

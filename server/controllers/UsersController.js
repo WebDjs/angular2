@@ -6,6 +6,10 @@ let encryption = require('../utilities/encryption'),
 
 function postRegister(req, res) {
     let newUserData = req.body;
+    console.log(newUserData)
+    if(newUserData.password !== newUserData.confirmPassword) {
+        return res.status(400).json({ success: false, msg: {message: 'Password mismatch'}});
+    }
 
     newUserData.salt = encryption.generateSalt();
     newUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
@@ -34,7 +38,17 @@ function postAuthenticate(req, res) {
                 // if user is found and password is right create a token
                 let token = jwt.encode(user, config.secret);
                 // return the information including token as JSON
-                return res.json({ success: true, token: 'JWT ' + token });
+                return res.json({ 
+                    success: true, 
+                    token: 'JWT ' + token,
+                    user: {
+                        id: user._id,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
+                        email: user.email,
+                        username: user.username
+                    } 
+                });
             } else {
                 res.status(401).send({ err: 'Authentication failed. Wrong password.' });
             }

@@ -23,18 +23,14 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     this.sub = this._route.params.subscribe(
       params => {
-        let id = +params['id'];
-        this.getUser(id);
+        let id = params['id'];
+        this._dataService.getUserById(id).subscribe(
+          userData => this.userData = userData);
       });
   }
 
-  getUser(id: number) {
-        this._dataService.getUserById(id).subscribe(
-        userData => this.userData = userData);
-    }
-
   submit() {
-    console.log("implement logic for submit")
+    console.log('implement logic for submit');
   }
 
 }

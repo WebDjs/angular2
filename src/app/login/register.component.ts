@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
     register() {
         this.loading = true;
-        this.authenticationService.create(this.model.username, this.model.password)
+        this.authenticationService.create(this.model)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);

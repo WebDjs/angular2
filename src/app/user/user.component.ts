@@ -12,11 +12,9 @@ export class UserComponent implements OnInit {
   userData: User;
 
   constructor(private _dataService: DataService) { }
-  
+
   ngOnInit() {
-    this._dataService.getUserById(1)
-      .subscribe(success => {
-        this.userData = success;
-      });
+    // TODO: extract this in user something
+    this.userData = JSON.parse(localStorage.getItem('currentUser')).user;
   }
 }

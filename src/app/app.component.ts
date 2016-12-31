@@ -9,28 +9,23 @@ import 'mdl-select-component/mdl-selectfield.min';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  encapsulation: ViewEncapsulation.None,
   styles: [
-    `
-      .page-content {
-        background-color: #f5f5f5;
-        width: 100%;
-        margin: 0 auto;
-        padding: 30px;
+    `      
+      .mdl-layout__content.page-content {
+      	padding: 24px;
       }
-    `,
-    require('material-design-lite/dist/material.min.css'),
-    require('mdl-select-component/mdl-selectfield.min.css'), // for select input (optional)
+    `
   ]
 })
 export class AppComponent implements OnInit, DoCheck {
-  title = 'Site title';
+  title = 'Di(v)e!';
   currentUser: User;
 
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
     this.currentUser = this.usersService.loggedUser();
+    console.log(this.currentUser);
   }
 
   ngDoCheck() {

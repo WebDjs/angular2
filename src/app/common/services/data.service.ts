@@ -20,7 +20,7 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    private getById<T>(id: number, url: string): Observable<T> {
+    private getById<T>(id: string, url: string): Observable<T> {
 
         return this._http.get(url)
             .map((response: Response) => <T>response.json())
@@ -32,8 +32,8 @@ export class DataService {
        return this.getAll<ILog>(this._logsUrl);
     }
 
-    getLogById(id: number): Observable<ILog> {
-        //TODO: refactor to request the item directly
+    getLogById(id: string): Observable<ILog> {
+        // TODO: refactor to request the item directly
         return this.getAllLogs()
             .map((diveLogs: ILog[]) => diveLogs.find(p => p.id === id));
     }
@@ -42,8 +42,8 @@ export class DataService {
         return this.getAll<ILocation>(this._locationsUrl);
     }
 
-    getUserById(id: number): Observable<User>{
-        console.log("get all",  this.getAll<User>(this._usersUrl))
+    getUserById(id: string): Observable<User>{
+        console.log('get all',  this.getAll<User>(this._usersUrl));
          return this.getAll<User>(this._usersUrl)
             .map((users: User[]) => users.find(p => p.id === id));
     }

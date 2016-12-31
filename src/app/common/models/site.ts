@@ -1,5 +1,5 @@
 export interface ISite {
-    id: Number;
-    name: String;
-    sightings: Array<String>;
+    id: string;
+    name: string;
+    sightings: string[];
 }

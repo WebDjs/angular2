@@ -1,8 +1,8 @@
 export interface ILog {
-    id: number;
+    id: string;
     location: string;
     depth: number;
     site: string;
     time: number;
-    sightings: Array<string>;
+    sightings: string[];
 }

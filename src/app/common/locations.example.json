@@ -1,10 +1,10 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "name": "Nassau, Bahamas",
         "sites": [
             {
-                "id": 1,
+                "id": "1",
                 "name": "The Blue Lagoon",
                 "sightings": [
                     "Turtles",
@@ -12,7 +12,7 @@
                 ]
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "Fisherman boat",
                 "sightings": [
                     "Trigger fish",
@@ -22,7 +22,7 @@
         ],
         "logs": [
             {
-                "id": 1,
+                "id": "1",
                 "site": "The Blue Lagoon",
                 "depth": 32,
                 "time": 40,
@@ -32,7 +32,7 @@
                 "divedBy": "HashTagDeep"
             },
             {
-                "id": 2,
+                "id": "2",
                 "site": "Fisherman boat",
                 "depth": 24,
                 "time": 58,

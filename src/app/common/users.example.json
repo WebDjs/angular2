@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "username": "HashTagDeep",
         "firstName": "Ivan",
         "lastName": "Petrov",
@@ -8,7 +8,7 @@
         "image": "master_diver.jpg",
         "logs": [
             {
-                "id": 1,
+                "id": "1",
                 "site": "The Blue Lagoon",
                 "depth": 32,
                 "time": 40,

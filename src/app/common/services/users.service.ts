@@ -7,10 +7,7 @@ export class UsersService {
     constructor() { }
 
     loggedUser(): User {
-        let loggedUser = localStorage.getItem('currentUser');
-
-        return  loggedUser ?
-            JSON.parse(loggedUser) :
-            null;
+        let storedUser = localStorage.getItem('currentUser');
+        return storedUser ? JSON.parse(storedUser).user : null;
     }
 }

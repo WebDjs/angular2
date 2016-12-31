@@ -6,7 +6,7 @@
     <div id="right">
         <p><span>First name:</span> {{userData.firstName}}</p>
         <p><span>Last name:</span> {{userData.lastName}}</p>
-        <p><span>Description:</span> {{userData.description}}</p>
+        <!--<p><span>Description:</span> {{userData.description}}</p>-->
         <a [routerLink]="['/userprofileedit', userData.id]" (click)='editable=true'> Edit </a>
     </div>
     <div>
