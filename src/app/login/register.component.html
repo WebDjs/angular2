@@ -6,13 +6,13 @@
 			</div>
 			<div class="mdl-card__supporting-text">
 				<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !firstName.valid }">
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !fName.valid }">
 						<input class="mdl-textfield__input form-control" type="text" id="fName" name="firstName" [(ngModel)]="model.firstName"
 							#fName="ngModel" minlength="2" />
 						<label class="mdl-textfield__label" for="fName">First name</label>
 						<div *ngIf="!fName.valid && fName.touched"><span class="mdl-textfield__error">First name must be at least 2 characters long.</span></div>
 					</div>
-					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !lastName.valid }">
+					<div class="mdl-textfield mdl-js-textfield form-group" [ngClass]="{ 'has-error': !lName.valid }">
 						<input class="mdl-textfield__input form-control" type="text" id="lName" name="lastName" [(ngModel)]="model.lastName"
 							#lName="ngModel" minlength="2" />
 						<label class="mdl-textfield__label" for="lName">Last name</label>
