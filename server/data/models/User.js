@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
     encryption = require('../../utilities/encryption'),
+    Schema = mongoose.Schema,
     requiredMessage = '{PATH} is required';
 
 module.exports.init = function() {
@@ -9,7 +10,8 @@ module.exports.init = function() {
         hashPass: String,
         email: String,
         firstName: String,
-        lastName: String
+        lastName: String,
+        logs: [{ type: Schema.Types.ObjectId, ref: 'Log' }]
     });
 
     userSchema.method({

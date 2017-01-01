@@ -1,12 +1,16 @@
 const express = require('express'),
- app = express(),
- bodyParser = require('body-parser'),
- morgan = require('morgan'),
- mongoose = require('mongoose'),
- passport = require('passport'),
- config = require('./server/config/database'), // get db config file
- UserModel = require('./server/data/models/User'), // get the mongoose model
- port = process.env.PORT || 3000;
+  app = express(),
+  bodyParser = require('body-parser'),
+  morgan = require('morgan'),
+  mongoose = require('mongoose'),
+  passport = require('passport'),
+  config = require('./server/config/database'), // get db config file
+  UserModel = require('./server/data/models/User'),
+  LogModel = require('./server/data/models/Log'),
+  SightingModel = require('./server/data/models/Sighting'),
+  LocationModel = require('./server/data/models/Location'),
+  SiteModel = require('./server/data/models/Site'),
+  port = process.env.PORT || 3000;
 
 // Allow CORS
 app.use(function(req, res, next) {
@@ -33,6 +37,10 @@ app.get('/', function(req, res) {
 // connect to database
 mongoose.connect(config.database);
 UserModel.init();
+LogModel.init();
+SightingModel.init();
+SiteModel.init();
+LocationModel.init();
  
 // pass passport for configuration
 require('./server/config/passport')(passport);
