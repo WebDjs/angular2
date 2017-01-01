@@ -37,7 +37,13 @@ function postUpdate(req, res) {
 
         return res.status(201).json({
             success: true,
-            user: user
+            user: {
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                id: user._id
+            }
         });
     });
 }
