@@ -9,28 +9,34 @@ import { DataService } from 'app/common/services/data.service';
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent {
+ 
+  // @Input() userData: User;
 
-  userData: User;
+  // private sub: Subscription;
+  // constructor(private _route: ActivatedRoute,
+  //   private _router: Router,
+  //   private _dataService: DataService) {
+  // }
 
-  private sub: Subscription;
-  constructor(private _route: ActivatedRoute,
-    private _router: Router,
-    private _dataService: DataService) {
-  }
+  // ngOnInit() {
+  //   this.sub = this._route.params.subscribe(
+  //     params => {
+  //       let id = params['id'];
+  //       this.getUser(id);
+  //     });
+  // }
 
+  // getUser(id: string) {    
+  //  this._dataService.getUserById("1").subscribe(
+  //     userData => this.userData = userData);
+  // }
 
-  ngOnInit() {
-    this.sub = this._route.params.subscribe(
-      params => {
-        let id = params['id'];
-        this._dataService.getUserById(id).subscribe(
-          userData => this.userData = userData);
-      });
-  }
+  // submit() {
+  //   console.log("implement logic for submit")
+  // }
 
-  submit() {
-    console.log('implement logic for submit');
-  }
-
+  // cancel() {
+  //   console.log("implement logic for submit")
+  // }
 }
