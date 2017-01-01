@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { User } from 'app/common/models';
 import { DataService } from 'app/common/services/data.service';
+import { UserState } from 'app/common/user-state.event';
 
 @Component({
   selector: 'app-user-edit',
@@ -11,7 +12,8 @@ import { DataService } from 'app/common/services/data.service';
 })
 export class UserEditComponent {
  
-  // @Input() userData: User;
+   @Input() userData: User;
+   @Output() stateChange: EventEmitter<UserState> = new EventEmitter<UserState>();
 
   // private sub: Subscription;
   // constructor(private _route: ActivatedRoute,
@@ -32,11 +34,14 @@ export class UserEditComponent {
   //     userData => this.userData = userData);
   // }
 
-  // submit() {
-  //   console.log("implement logic for submit")
-  // }
+  submit(userData: User, isValid: boolean) {
+    if(isValid) {
+      //this._dataService.updateUser(userData)
+      this.stateChange.emit("read");
+    }
+  }
 
-  // cancel() {
-  //   console.log("implement logic for submit")
-  // }
+  cancel() {
+    this.stateChange.emit("read");
+  }
 }

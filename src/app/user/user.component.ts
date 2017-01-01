@@ -4,8 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from 'app/common/services/data.service';
 import { User } from 'app/common/models';
 import { Subscription } from 'rxjs/Subscription';
-
-export type UserState = "read" | "create" | "update";
+import { UserState } from 'app/common/user-state.event';
 
 @Component({
   selector: 'app-user',
@@ -38,11 +37,8 @@ export class UserComponent implements OnInit {
     // });
   }
 
-  submit(userData: User, isValid: boolean) {
-    if(isValid) {
-      //this._dataService.updateUser(userData)
-      this.state = "read";
-    }
+  onStateChange(curState: UserState){
+    this.state = curState;
   }
 
   update() { this.state = "update"; }

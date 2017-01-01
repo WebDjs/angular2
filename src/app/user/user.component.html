@@ -1,9 +1,9 @@
 <div>
     <div id="left" *ngIf="userData">
-        <h3 >Hello {{userData.username}}</h3>
+        <h3>Hello {{userData.username}}</h3>
         <img src="assets/images/{{userData.image}}" />
     </div>
-    <div id="right" >
+    <div id="right">
         <div *ngIf="userData && checkState('read')">
             <p><span>First name:</span> {{userData.firstName}}</p>
             <p><span>Last name:</span> {{userData.lastName}}</p>
@@ -11,26 +11,9 @@
             <button (click)='create()'> Add dive </button>
             <button (click)='update()'> Edit </button>
         </div>
-        <div *ngIf="userData && checkState('update')">
-            <form #f="ngForm" (ngSubmit)="submit(f.value, f.valid)" novalidate>
-                <p><span>First name:</span>
-                    <input [(ngModel)]="userData.firstName" required minlength="2" name="firstName" #fName="ngModel" />
-                    <span style="color:red;"
-                          [hidden]="fName.valid || (fName.pristine && !f.submitted)">First name is required (minimum 2 characters)</span>
-                </p>
-                <p><span>Last name:</span>
-                    <input [(ngModel)]="userData.lastName" required minlength="2" name="lastName" #lName="ngModel" />
-                    <span style="color:red;"
-                          [hidden]="lName.valid || (lName.pristine && !f.submitted)">Last name is required (minimum 2 characters)</span>
-                </p>
-                <p><span>Description:</span>
-                    <textarea [(ngModel)]="userData.description" name="description"></textarea>
-                </p>
-
-                <button type="submit">Submit</button>
-                <button type="button" (click)="cancel()">Cancel</button>
-            </form>
-        </div>
+        <app-user-edit [userData]="userData"
+                       *ngIf="userData && checkState('update')"
+                       (stateChange)="onStateChange($event)"></app-user-edit>
         <div *ngIf=" userData && checkState('create')">Add dive</div>
     </div>
 </div>
