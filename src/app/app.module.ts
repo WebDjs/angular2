@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import {
   HeaderComponent,
   NavMenuComponent,
-  HomeComponent,
   AppRoutingModule,
   AlertComponent
 } from './common';
+import { HomeComponent } from './home/home.component';
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';

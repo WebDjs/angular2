@@ -18,7 +18,7 @@ import 'mdl-select-component/mdl-selectfield.min';
   ]
 })
 export class AppComponent implements OnInit, DoCheck {
-  title = 'Di(v)e!';
+  title = 'DiveIn';
   currentUser: User;
 
   constructor(private usersService: UsersService) { }
