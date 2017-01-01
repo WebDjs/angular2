@@ -45,6 +45,9 @@ let usersController = require('./server/controllers/UsersController');
 apiRoutes.post('/signup', usersController.postRegister);
 // log in and get a token (POST http://localhost:3000/api/authenticate)
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
+// update existing user (POST http://localhost:3000/api/updateUserInfo)
+apiRoutes.post('/updateUserInfo', passport.authenticate('jwt', { session: false }), usersController.postUpdate);
+
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);

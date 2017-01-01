@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService, AuthenticationService } from '../common/services/index';
+import { AlertService, AuthenticationService, UsersService } from '../common/services/';
 import { User } from '../common/models/';
 
 @Component({
@@ -17,7 +17,8 @@ export class RegisterComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        private usersService: UsersService) { }
 
     ngOnInit() {
         this.model = {
@@ -38,7 +39,7 @@ export class RegisterComponent implements OnInit {
 
     register() {
         this.loading = true;
-        this.authenticationService.create(this.model)
+        this.usersService.create(this.model)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
