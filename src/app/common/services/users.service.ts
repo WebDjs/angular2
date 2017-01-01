@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { User } from '../models/';
+import { AuthenticationService } from './';
 
 @Injectable()
 export class UsersService {
 
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http,
+        private authenticationService: AuthenticationService) { }
 
     create(user: User) {
         let headers = new Headers();
@@ -37,7 +40,6 @@ export class UsersService {
             JSON.stringify(user),
             { headers: headers })
             .map((response: Response) => {
-                // register and login successful if there's a jwt token in the response
                 let updatedUser = response.json();
                 if (updatedUser && updatedUser.success) {
                     // update stored user details in local storage
@@ -47,6 +49,22 @@ export class UsersService {
                 }
 
                 return updatedUser;
+            });
+    }
+
+    delete(username: string) {
+        let headers = new Headers(),
+            token = this.getToken();
+
+        headers.append('content-type', 'application/json');
+        headers.append('authorization', token);
+
+        return this.http.post(
+            'http://localhost:3000/api/deleteUser',
+            username,
+            { headers: headers })
+            .subscribe((response: Response) => {
+                this.authenticationService.logout();
             });
     }
 

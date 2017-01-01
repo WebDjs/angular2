@@ -11,5 +11,8 @@ module.exports = {
             new: true,
             upsert: false 
         }, callback);
+    },
+    delete: function (username, callback) {
+        User.findOneAndRemove({ username: username }, callback);
     }
 };

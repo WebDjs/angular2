@@ -48,6 +48,33 @@ function postUpdate(req, res) {
     });
 }
 
+function postDelete(req, res) {
+    let username = req.body.username;
+    users.delete(username, function (err, user) {
+        if (err) {
+            return res.status(400).json({
+                    success: false,
+                    msg: {
+                        code: err.code,
+                        message: err.message
+                    }
+                });
+        }
+
+        return res.status(201).json({
+            success: true,
+            user: {
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                id: user._id,
+                deleted: true
+            }
+        });
+    });
+}
+
 function postAuthenticate(req, res) {
     User.findOne({
         username: req.body.username
@@ -85,5 +112,6 @@ function postAuthenticate(req, res) {
 module.exports = {
     postRegister,
     postAuthenticate,
-    postUpdate
+    postUpdate,
+    postDelete
 };

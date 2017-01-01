@@ -47,6 +47,8 @@ apiRoutes.post('/signup', usersController.postRegister);
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
 // update existing user (POST http://localhost:3000/api/updateUserInfo)
 apiRoutes.post('/updateUserInfo', passport.authenticate('jwt', { session: false }), usersController.postUpdate);
+// delete existing user (POST http://localhost:3000/api/deleteUser)
+apiRoutes.post('/deleteUser', passport.authenticate('jwt', { session: false }), usersController.postDelete);
 
  
 // connect the api routes under /api/*
