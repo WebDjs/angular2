@@ -45,6 +45,8 @@ export class UsersService {
                     storedUser.user = updatedUser.user;
                     localStorage.setItem('currentUser', JSON.stringify(storedUser));
                 }
+
+                return updatedUser;
             });
     }
 
