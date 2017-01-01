@@ -25,6 +25,34 @@ export class UsersService {
             });
     }
 
+    update(user: User) {
+        let headers = new Headers(),
+            token = this.getToken();
+
+        headers.append('content-type', 'application/json');
+        headers.append('authorization', token);
+
+        return this.http.post(
+            'http://localhost:3000/api/updateUserInfo',
+            JSON.stringify(user),
+            { headers: headers })
+            .map((response: Response) => {
+                // register and login successful if there's a jwt token in the response
+                let updatedUser = response.json();
+                if (updatedUser && updatedUser.success) {
+                    // update stored user details in local storage
+                    let storedUser = JSON.parse(localStorage.getItem('currentUser'));
+                    storedUser.user = updatedUser.user;
+                    localStorage.setItem('currentUser', JSON.stringify(storedUser));
+                }
+            });
+    }
+
+    getToken(): string {
+        let storedUser = localStorage.getItem('currentUser');
+        return storedUser ? JSON.parse(storedUser).token : null;
+    }
+
     loggedUser(): User {
         let storedUser = localStorage.getItem('currentUser');
         return storedUser ? JSON.parse(storedUser).user : null;

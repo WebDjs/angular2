@@ -1,7 +1,7 @@
 const JwtStrategy = require('passport-jwt').Strategy;
  
 // load up the user model
-const User = require('../data/models/User');
+const User = require('mongoose').model('User');
 const config = require('./database'); // get db config file
  
 module.exports = function(passport) {
