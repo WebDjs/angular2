@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserEditComponent } from './user-edit.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { DataService } from 'app/common/services/data.service';
+import { UsersService } from '../common/services';
 import { User } from 'app/common/models';
 import { Subscription } from 'rxjs/Subscription';
 import { UserState } from 'app/common/user-state.event';
@@ -16,10 +16,14 @@ export class UserComponent implements OnInit {
   state: UserState = "read";
   sub: Subscription;
 
-  constructor(private _dataService: DataService, private _route: ActivatedRoute) { }
+  constructor(private usersService: UsersService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getUser("1");
+
+
+    this.userData = this.usersService.loggedUser();
+    console.log(this.userData);
+    //this.getUser("1");
     // this.sub = this._route.params.subscribe(
     //   params => {
     //     let id = params['id'];
@@ -27,15 +31,15 @@ export class UserComponent implements OnInit {
     //   });
   }
 
-  getUser(id: string) {
-     this._dataService.getUserById(id).subscribe(
-      userData => this.userData = userData);
+ // getUser(id: string) {
+    // this._dataService.getUserById(id).subscribe(
+     // userData => this.userData = userData);
 
     // this._dataService.getUserById(id).subscribe(function(userData) {
     //       console.log(userData);
     //       this.userData = userData;
     // });
-  }
+  //}
 
   onStateChange(curState: UserState){
     this.state = curState;

@@ -7,7 +7,7 @@
       <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/login']" [routerLinkActive]="['current-route']">Login</a>
     <div *ngIf="existingUser">
     <span [routerLink]="['/userprofile']" [routerLinkActive]="['current-route']">Hello {{this.existingUser.username}}</span>
-      <button (click)="logout()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      <button (click)="logout()" [routerLink]="['/home']" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
         Logout
       </button>
     </div>
