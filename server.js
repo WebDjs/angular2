@@ -12,7 +12,7 @@ const express = require('express'),
 // Allow CORS
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
   next();
 });
 
@@ -43,6 +43,8 @@ require('./server/config/passport')(passport);
 let apiRoutes = express.Router();
 
 let usersController = require('./server/controllers/UsersController');
+// get user by id
+apiRoutes.get('/users/:id', usersController.getById);
 // create a new user account (POST http://localhost:3000/api/signup)
 apiRoutes.post('/signup', usersController.postRegister);
 // log in and get a token (POST http://localhost:3000/api/authenticate)
@@ -58,7 +60,6 @@ apiRoutes.get('/locations/read', locationsController.getAll);
 apiRoutes.get('/locations/read/:id', locationsController.getById);
 apiRoutes.post('/locations/create', passport.authenticate('jwt', { session: false }), locationsController.postCreate);
 apiRoutes.post('/locations/update', passport.authenticate('jwt', { session: false }), locationsController.postUpdate);
-// apiRoutes.post('/locations/delete', passport.authenticate('jwt', { session: false }), locationsController.postDelete);
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);

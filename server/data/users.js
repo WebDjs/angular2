@@ -14,5 +14,8 @@ module.exports = {
     },
     delete: function (username, callback) {
         User.findOneAndRemove({ username: username }, callback);
+    },
+    getById: function(param, callback){
+        User.findById(param, callback);
     }
 };

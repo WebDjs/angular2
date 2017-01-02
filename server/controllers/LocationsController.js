@@ -73,7 +73,6 @@ function getAll(req, res) {
 }
 
 function getById(req, res) {
-    console.log(req.params)
     locations.getAll({ _id: req.params.id }, function(err, data){
         if (err) {
             return res.status(400).json({

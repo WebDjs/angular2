@@ -43,7 +43,7 @@ function postUpdate(req, res) {
                 email: user.email,
                 id: user._id,
                 imageUrl: user.imageUrl,
-                //description: user.description,
+                description: user.description,
                 logs: user.logs
             }
         });
@@ -114,7 +114,36 @@ function postAuthenticate(req, res) {
     });
 }
 
+function getById(req, res) {
+    users.getById({ _id: req.params.id }, function (err, user) {
+        if (err) {
+            return res.status(400).json({
+                success: false,
+                msg: {
+                    code: err.code,
+                    message: err.message
+                }
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            user: {
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                id: user._id,
+                imageUrl: user.imageUrl,
+                description: user.description,
+                logs: user.logs
+            }
+        });
+    });
+}
+
 module.exports = {
+    getById,
     postRegister,
     postAuthenticate,
     postUpdate,
