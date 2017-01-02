@@ -2,8 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { User } from 'app/common/models';
-import { DataService } from 'app/common/services/data.service';
+import { UsersService } from 'app/common/services/users.service';
 import { UserState } from 'app/common/user-state.event';
+import { Http, Headers, Response } from '@angular/http';
 
 @Component({
   selector: 'app-user-edit',
@@ -11,33 +12,21 @@ import { UserState } from 'app/common/user-state.event';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent {
- 
-   @Input() userData: User;
-   @Output() stateChange: EventEmitter<UserState> = new EventEmitter<UserState>();
 
-  // private sub: Subscription;
-  // constructor(private _route: ActivatedRoute,
-  //   private _router: Router,
-  //   private _dataService: DataService) {
-  // }
+  @Input() userData: User;
+  @Output() stateChange: EventEmitter<UserState> = new EventEmitter<UserState>();
 
-  // ngOnInit() {
-  //   this.sub = this._route.params.subscribe(
-  //     params => {
-  //       let id = params['id'];
-  //       this.getUser(id);
-  //     });
-  // }
-
-  // getUser(id: string) {    
-  //  this._dataService.getUserById("1").subscribe(
-  //     userData => this.userData = userData);
-  // }
+  constructor(private _route: ActivatedRoute,
+    private _router: Router,
+    private _usersService: UsersService) {
+  }
 
   submit(userData: User, isValid: boolean) {
-    if(isValid) {
-      //this._dataService.updateUser(userData)
-      this.stateChange.emit("read");
+    if (isValid) {
+      this._usersService.update(userData).subscribe((response: Response) => {
+        this.stateChange.emit("read");
+      });
+
     }
   }
 

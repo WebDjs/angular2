@@ -29,6 +29,7 @@ export class UsersService {
     }
 
     update(user: User) {
+        console.log("user",user)
         let headers = new Headers(),
             token = this.getToken();
 
@@ -39,7 +40,10 @@ export class UsersService {
             'http://localhost:3000/api/updateUserInfo',
             JSON.stringify(user),
             { headers: headers })
+
             .map((response: Response) => {
+                
+                 console.log(response, "USER")
                 let updatedUser = response.json();
                 if (updatedUser && updatedUser.success) {
                     // update stored user details in local storage
@@ -47,7 +51,7 @@ export class UsersService {
                     storedUser.user = updatedUser.user;
                     localStorage.setItem('currentUser', JSON.stringify(storedUser));
                 }
-
+               
                 return updatedUser;
             });
     }
@@ -70,6 +74,7 @@ export class UsersService {
 
     getToken(): string {
         let storedUser = localStorage.getItem('currentUser');
+        console.log(JSON.parse(storedUser).token, "stored")
         return storedUser ? JSON.parse(storedUser).token : null;
     }
 
