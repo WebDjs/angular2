@@ -8,15 +8,14 @@ import { ILog, ILocation, User } from 'app/common/models';
 @Injectable()
 export class DataService {
     private _logsUrl = 'app/common/logs.example.json';
-    private _locationsUrl = 'app/common/locations.example.json';
+    private _locationsUrl = 'http://localhost:3000/api/locations/read';
     private _usersUrl = 'app/common/users.example.json';
 
     constructor(private _http: Http) { }
 
-    private getAll<T>(url: string): Observable<T[]> {
+    private getAll<T>(url: string): any {
          return this._http.get(url)
-            .map((response: Response) => <T[]>response.json())
-            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .map((response: Response) => response.json())
             .catch(this.handleError);
     }
 
@@ -38,8 +37,8 @@ export class DataService {
             .map((diveLogs: ILog[]) => diveLogs.find(p => p.id === id));
     }
 
-    getAllLocations(): Observable<ILocation[]> {
-        return this.getAll<ILocation>(this._locationsUrl);
+    getAllLocations(): any {
+        return this.getAll(this._locationsUrl);
     }
 
     getUserById(id: string): Observable<User>{
