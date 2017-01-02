@@ -1,0 +1,7 @@
+<nav class="pager-container">
+  <ul class="pagination pagination-lg">
+    <li *ngFor="let item of createRange(numberOfPages); let i = index" class="page-item">
+      <a class="page-link" [routerLink]="['/list/' + (i + 1)]">{{i+1}}</a>
+    </li>
+  </ul>
+</nav>

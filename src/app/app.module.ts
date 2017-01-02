@@ -9,7 +9,8 @@ import {
   NavMenuComponent,
   AppRoutingModule,
   AlertComponent,
-  FooterComponent
+  FooterComponent,
+  PagerComponent
 } from './common';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent, FeaturedItemComponent } from './items';
@@ -31,6 +32,7 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AddLocationsComponent } from './add-locations/add-locations.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { SortingPipe, FilterPipe, PagingPipe } from './common/pipes';
 
 @NgModule({
   declarations: [
