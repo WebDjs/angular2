@@ -26,7 +26,7 @@
           <div>
             <span>Latitude: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" name="latitude" id="latitude" [(ngModel)]="newLocation.latitude">
+              <input class="mdl-textfield__input" type="text" name="latitude" id="latitude" readonly [(ngModel)]="newLocation.latitude">
               <label class="mdl-textfield__label" for="latitude">Enter latitude...</label>
             </div>
           </div>
@@ -34,7 +34,7 @@
           <div>
             <span>Longitude: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="longitude" name="longitude" [(ngModel)]="newLocation.longitude" >
+              <input class="mdl-textfield__input" type="text" id="longitude" name="longitude" readonly [(ngModel)]="newLocation.longitude" >
               <label class="mdl-textfield__label" for="longitude">Enter longtide...</label>
             </div>
           </div>

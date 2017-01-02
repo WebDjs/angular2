@@ -26,6 +26,7 @@ export class AddLocationsComponent implements OnInit {
       imageUrls: [],
       sites: []
     };
+
   }
 
   addLocations(newLocation: Location) {

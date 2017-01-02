@@ -1,4 +1,4 @@
-import { ILog } from './';
+import { Log } from './';
 
 export interface User {
     id?: string;
@@ -10,5 +10,5 @@ export interface User {
     lastName?: string;
     description?: string;
     imageUrl?: string;
-    logs?: ILog[];
+    logs?: Log[];
 };
