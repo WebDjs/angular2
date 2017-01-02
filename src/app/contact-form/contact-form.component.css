@@ -5,3 +5,8 @@
 #formContainer span{
     font-weight: bold;
 }
+
+#formContainer input{
+    width: 300px;
+    margin-bottom: 20px;
+}

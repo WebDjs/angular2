@@ -1,15 +1,17 @@
 <div id="formContainer">
+    
     <h3>Share your feedback or send a request</h3>
     <form>
-        <p><span>Email address: </span><input id="emailAddress" /></p>
-        <p>
-            <span>Select category: </span><select>
-                <option value="feedback">Feedback</option>
-                <option value="technicalIssues">Technical issues</option>
-                <option value="itemRequest">Request for new item</option>
-            </select>
-        </p>
+        
+        <span>Email address: </span>
+        <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="email" id="emailAddress" />
+         <label class="mdl-textfield__label" for="emailAddress">Email...</label>
+        </div>
         <p><span>Request: </span></p>
-        <p><textarea rows="4" cols="50"></textarea></p>
+        <div class="mdl-textfield mdl-js-textfield">
+        <p><textarea class="mdl-textfield__input" type="text" rows="4" cols="50" id="testArea"></textarea>
+        <label class="mdl-textfield__label" for="testArea">Text lines...</label></p>
+        </div>
     </form>
 </div>

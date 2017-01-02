@@ -9,6 +9,11 @@
     height:50%
 }
 
+#map iframe{
+    width: 90%;
+    height:90%
+}
+
 #addressDetails span{
     font-weight: bold;
 }
