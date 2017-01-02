@@ -1,7 +1,9 @@
 [
     {
-        "id": "1",
         "name": "Nassau, Bahamas",
+        "latitude": "9.532939",
+        "longitude": "100.0600993",
+        "imageUrls":["a", "b", "c"],
         "sites": [
             {
                 "id": "1",
@@ -39,7 +41,7 @@
                 "sightings": [
                     "Octopus"
                 ],
-                "divedBy": "Bubblemaster"
+                "divedBy": "HashTagDeep"
             }
         ]
     }
