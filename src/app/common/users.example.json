@@ -1,11 +1,12 @@
 [
     {
-        "id": "1",
         "username": "HashTagDeep",
+        "password": "parola",
+        "confirmPassword": "parola",
         "firstName": "Ivan",
         "lastName": "Petrov",
         "description": "This is my description",
-        "image": "master_diver.jpg",
+        "imageUrl": "master_diver.jpg",
         "logs": [
             {
                 "id": "1",
@@ -13,7 +14,8 @@
                 "depth": 32,
                 "time": 40,
                 "sightings": [
-                    "Turtle"
+                    "Turtle",
+                    "Gosho"
                 ]
             }
         ]
