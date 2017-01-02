@@ -2,7 +2,10 @@ let encryption = require('../utilities/encryption'),
     jwt = require('jwt-simple'),
     users = require('../data/users'),
     User = require('mongoose').model('User'),
-    config = require('../config/database');
+    config = require('../config/database'),
+    mongoose = require('mongoose'),
+    fs = require('fs'),
+    Schema = mongoose.Schema;
 
 function postRegister(req, res) {
     let newUserData = req.body;
