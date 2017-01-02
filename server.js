@@ -64,8 +64,6 @@ apiRoutes.get('/locations/read/:id', locationsController.getById);
 apiRoutes.post('/locations/create', passport.authenticate('jwt', { session: false }), locationsController.postCreate);
 apiRoutes.post('/locations/update', passport.authenticate('jwt', { session: false }), locationsController.postUpdate);
 
-apiRoutes.post('/file/upload', usersController.postFile);  
-
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
  
