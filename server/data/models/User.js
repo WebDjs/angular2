@@ -11,7 +11,9 @@ module.exports.init = function() {
         email: String,
         firstName: String,
         lastName: String,
-        logs: [{ type: Schema.Types.ObjectId, ref: 'Log' }]
+        logs: { type : Array , 'default' : [] },
+        imageUrl: String,
+        description: String
     });
 
     userSchema.method({

@@ -24,15 +24,14 @@ function postRegister(req, res) {
 function postUpdate(req, res) {
     let newUserData = req.body;
     users.update(newUserData, function (err, user) {
-        console.log(user)
         if (err) {
             return res.status(400).json({
-                    success: false,
-                    msg: {
-                        code: err.code,
-                        message: err.message
-                    }
-                });
+                success: false,
+                msg: {
+                    code: err.code,
+                    message: err.message
+                }
+            });
         }
 
         return res.status(201).json({
@@ -42,7 +41,10 @@ function postUpdate(req, res) {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
-                id: user._id
+                id: user._id,
+                imageUrl: user.imageUrl,
+                //description: user.description,
+                logs: user.logs
             }
         });
     });
@@ -53,12 +55,12 @@ function postDelete(req, res) {
     users.delete(username, function (err, user) {
         if (err) {
             return res.status(400).json({
-                    success: false,
-                    msg: {
-                        code: err.code,
-                        message: err.message
-                    }
-                });
+                success: false,
+                msg: {
+                    code: err.code,
+                    message: err.message
+                }
+            });
         }
 
         return res.status(201).json({
@@ -95,11 +97,14 @@ function postAuthenticate(req, res) {
                     success: true,
                     token: 'JWT ' + token,
                     user: {
-                        id: user._id,
+                        username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
                         email: user.email,
-                        username: user.username
+                        id: user._id,
+                        imageUrl: user.imageUrl,
+                        description: user.description,
+                        logs: user.logs
                     }
                 });
             } else {

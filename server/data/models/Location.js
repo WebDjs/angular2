@@ -4,10 +4,11 @@ const mongoose = require('mongoose'),
 module.exports.init = function() {
     let locationSchema = mongoose.Schema({
         name: String,
-        sites: [{ type: Schema.Types.ObjectId, ref: 'Site' }],
-        logs: [{ type: Schema.Types.ObjectId, ref: 'Log' }],
+        sites: { type : Array , "default" : [] },
+        logs: { type : Array , "default" : [] },
         latitude: Number,
-        longitude: Number
+        longitude: Number,
+        imageUrls: { type : Array , "default" : [] }
     });
 
     let Location = mongoose.model('Location', locationSchema);

@@ -6,10 +6,7 @@ const express = require('express'),
   passport = require('passport'),
   config = require('./server/config/database'), // get db config file
   UserModel = require('./server/data/models/User'),
-  LogModel = require('./server/data/models/Log'),
-  SightingModel = require('./server/data/models/Sighting'),
   LocationModel = require('./server/data/models/Location'),
-  SiteModel = require('./server/data/models/Site'),
   port = process.env.PORT || 3000;
 
 // Allow CORS
@@ -37,9 +34,6 @@ app.get('/', function(req, res) {
 // connect to database
 mongoose.connect(config.database);
 UserModel.init();
-LogModel.init();
-SightingModel.init();
-SiteModel.init();
 LocationModel.init();
  
 // pass passport for configuration
@@ -58,6 +52,13 @@ apiRoutes.post('/updateUserInfo', passport.authenticate('jwt', { session: false 
 // delete existing user (POST http://localhost:3000/api/deleteUser)
 apiRoutes.post('/deleteUser', passport.authenticate('jwt', { session: false }), usersController.postDelete);
 
+let locationsController = require('./server/controllers/LocationsController');
+
+// apiRoutes.get('/locations/read', locationsController.getAll);
+// apiRoutes.get('/locations/read:id', locationsController.getById);
+apiRoutes.post('/locations/create', passport.authenticate('jwt', { session: false }), locationsController.postCreate);
+apiRoutes.post('/locations/update', passport.authenticate('jwt', { session: false }), locationsController.postUpdate);
+// apiRoutes.post('/locations/delete', passport.authenticate('jwt', { session: false }), locationsController.postDelete);
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
