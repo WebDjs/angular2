@@ -54,10 +54,47 @@ function postUpdate(req, res) {
 }
 
 function getAll(req, res) {
-    // return 
+    locations.getAll({}, function(err, data){
+        if (err) {
+            return res.status(400).json({
+                success: false,
+                msg: {
+                    code: err.code,
+                    message: err.message
+                }
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: data
+        });
+    });
+}
+
+function getById(req, res) {
+    console.log(req.params)
+    locations.getAll({ _id: req.params.id }, function(err, data){
+        if (err) {
+            return res.status(400).json({
+                success: false,
+                msg: {
+                    code: err.code,
+                    message: err.message
+                }
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: data
+        });
+    });
 }
 
 module.exports = {
     postCreate,
-    postUpdate
+    postUpdate,
+    getAll,
+    getById
 };

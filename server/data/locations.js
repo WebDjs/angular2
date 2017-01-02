@@ -1,8 +1,8 @@
 const Location = require('mongoose').model('Location');
 
 module.exports = {
-    getAll: function({}, callback){
-        // Location.find()
+    getAll: function(param, callback){
+        Location.find(param, callback);
     },
     create: function (location, callback) {
         Location.create(location, callback);

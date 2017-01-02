@@ -11,7 +11,7 @@ module.exports.init = function() {
         email: String,
         firstName: String,
         lastName: String,
-        logs: { type : Array , 'default' : [] },
+        logs: { type: Array, 'default': [] },
         imageUrl: String,
         description: String
     });

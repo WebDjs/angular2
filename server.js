@@ -54,8 +54,8 @@ apiRoutes.post('/deleteUser', passport.authenticate('jwt', { session: false }), 
 
 let locationsController = require('./server/controllers/LocationsController');
 
-// apiRoutes.get('/locations/read', locationsController.getAll);
-// apiRoutes.get('/locations/read:id', locationsController.getById);
+apiRoutes.get('/locations/read', locationsController.getAll);
+apiRoutes.get('/locations/read/:id', locationsController.getById);
 apiRoutes.post('/locations/create', passport.authenticate('jwt', { session: false }), locationsController.postCreate);
 apiRoutes.post('/locations/update', passport.authenticate('jwt', { session: false }), locationsController.postUpdate);
 // apiRoutes.post('/locations/delete', passport.authenticate('jwt', { session: false }), locationsController.postDelete);
