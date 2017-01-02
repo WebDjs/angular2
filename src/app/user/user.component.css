@@ -1,27 +1,5 @@
 img {
     height:300px;
-    width:200px;
+    width:300px;
     border-radius: 5%;
-}
-
-#left {
-    width:45%;
-    float:left;
-}
-
-#right {
-    padding-top:100px;
-    width:45%;
-    float:right;
-}
-
-#right>span {
-    font-weight: bold;
-    text-decoration:underline;
-    padding:3px;
-    border:1px solid black;
-}
-
-#right p span {
-    font-weight: bold;
 }
