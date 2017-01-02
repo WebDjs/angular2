@@ -8,7 +8,8 @@ import {
   HeaderComponent,
   NavMenuComponent,
   AppRoutingModule,
-  AlertComponent
+  AlertComponent,
+  FooterComponent
 } from './common';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent, FeaturedItemComponent } from './items';
@@ -50,7 +51,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     UserEditComponent,
     ContactUsComponent,
     ContactDetailsComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
