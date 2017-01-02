@@ -1,7 +1,11 @@
+<p><span>Add new location</span><button [routerLink]="['/addlocations']"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+  <i class="material-icons">+</i>
+</button></p>
+
 <div class="container-fluid">
   <h1>Dive Locations</h1>
   <div class="row">
-    <div style="color: red" class="col-sm-4" *ngFor="let l of locations">
+    <div style="color: red" class="col-sm-4 blocks" *ngFor="let l of locations">
       <h3>{{l.name}}</h3>
       <div style="color: green" *ngFor="let site of l.sites">
         <i>{{site.name}}</i>

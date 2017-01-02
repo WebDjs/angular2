@@ -9,6 +9,7 @@ import { LogComponent } from '../logs/log.component';
 import { LocationComponent } from '../locations/locations.component';
 import { UserComponent, UserEditComponent } from '../user/';
 import { ContactUsComponent } from '../contact-us/';
+import { AddLocationsComponent } from '../add-locations/';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'userprofile', component: UserComponent },
   { path: 'userprofileedit/:id', component: UserEditComponent },
   { path: 'contactus', component: ContactUsComponent },
+  { path: 'addlocations', component: AddLocationsComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];
 

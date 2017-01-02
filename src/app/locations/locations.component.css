@@ -1,0 +1,16 @@
+.blocks{
+    display: inline-block;
+    margin: 20px;
+
+}
+p span{
+    margin-right:20px;
+}
+
+p {
+    text-align: right;
+}
+
+p button{
+    margin-right: 60px;
+}

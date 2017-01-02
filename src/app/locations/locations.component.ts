@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import { ILocation } from 'app/common/models';
 
 @Component({
-    templateUrl: 'app/locations/locations.template.html'
+    templateUrl: 'app/locations/locations.template.html',
+    styleUrls: ['./locations.component.css']
 })
 export class LocationComponent implements OnInit {
     locations: ILocation[];

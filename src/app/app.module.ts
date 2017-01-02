@@ -29,6 +29,7 @@ import { UserEditComponent } from './user/user-edit.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { AddLocationsComponent } from './add-locations/add-locations.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ContactUsComponent,
     ContactDetailsComponent,
     ContactFormComponent,
-    FooterComponent
+    FooterComponent,
+    AddLocationsComponent
   ],
   imports: [
     BrowserModule,
