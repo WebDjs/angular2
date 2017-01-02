@@ -14,7 +14,7 @@
           <h2 class="mdl-card__title-text">Add new location</h2>
         </div>
         
-          				<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+          				<form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
           <div>
             <span>Location Name: </span>
             <div class="mdl-textfield mdl-js-textfield">
@@ -56,7 +56,7 @@
 
           <div class="mdl-card__actions mdl-card--border form-group">
             <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
-            <button type="button" (click)="submit()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >Submit</button>
+            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >Submit</button>
             <button type="button" (click)="cancel()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cancel</button>
           </div>
         </form>
