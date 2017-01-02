@@ -1,23 +1,32 @@
-<div id="formContainer">
-  <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+   <sebm-google-map class="content mdl-grid--no-spacing"
+                [latitude]="newLocation.latitude"
+                [longitude]="newLocation.longitude"
+                (mapClick)="mapClicked($event)"> 
+    <sebm-google-map-marker 
+         [latitude]="newLocation.latitude"
+        [longitude]="newLocation.longitude">
+      </sebm-google-map-marker>              
+  </sebm-google-map>
+  <div class="template__preview mdl-cell mdl-cell--4-col">
     <main class="mdl-layout__content">
       <div class="mdl-card mdl-shadow--6dp">
         <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
           <h2 class="mdl-card__title-text">Add new location</h2>
         </div>
-        <form>
+        
+          				<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
           <div>
-            <span>Name: </span>
+            <span>Location Name: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="name" #locationName>
-              <label class="mdl-textfield__label" for="name">Enter location name...</label>
+              <input class="mdl-textfield__input" type="text" id="name" name="name" #name [(ngModel)]="newLocation.name">
+              <label class="mdl-textfield__label" for="name">Enter name...</label>
             </div>
           </div>
 
           <div>
             <span>Latitude: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="latitude" #locationLatitude>
+              <input class="mdl-textfield__input" type="text" name="latitude" id="latitude" [(ngModel)]="newLocation.latitude">
               <label class="mdl-textfield__label" for="latitude">Enter latitude...</label>
             </div>
           </div>
@@ -25,33 +34,32 @@
           <div>
             <span>Longitude: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="longitude" #locationLongitude>
-              <label class="mdl-textfield__label" for="longitude">Enter Enter latitude...</label>
+              <input class="mdl-textfield__input" type="text" id="longitude" name="longitude" [(ngModel)]="newLocation.longitude" >
+              <label class="mdl-textfield__label" for="longitude">Enter longtide...</label>
             </div>
           </div>
 
-          <div>
+          <!--<div>
             <span>Image: </span>
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="file" id="image" #locationImage>
-            </div>
-          </div>
+            <div class="mdl-textfield mdl-js-textfield">-->
+              <!--<input class="mdl-textfield__input" type="file" id="image" name="imageUrl">-->
+            <!--</div>
+          </div>-->
 
           <div>
             <span>Site: </span>
             <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="site" #siteName>
+              <input class="mdl-textfield__input" type="text" id="site" name="siteName" [(ngModel)]="siteName">
               <label class="mdl-textfield__label" for="site">Enter site name...</label>
             </div>
           </div>
 
           <div class="mdl-card__actions mdl-card--border form-group">
             <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
-            <button type="submit" (click)="submit(locationName.value,locationLatitude.value,locationLongitude.value,locationImage.value,siteName.value)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >Submit</button>
+            <button type="button" (click)="submit()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" >Submit</button>
             <button type="button" (click)="cancel()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cancel</button>
           </div>
         </form>
       </div>
     </main>
   </div>
-</div>

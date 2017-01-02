@@ -30,6 +30,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AddLocationsComponent } from './add-locations/add-locations.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,10 @@ import { AddLocationsComponent } from './add-locations/add-locations.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDjLoOGdfc69EnJR4WlNH7j_CQ0Jq4KYH8'
+    })
   ],
   providers: [
     AlertService,

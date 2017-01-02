@@ -1,7 +1,10 @@
-import { ISite } from './site';
+import { Site } from './site';
 
-export interface ILocation {
-    id: string;
+export interface Location {
+    id?: string;
     name: string;
-    sites: ISite[];
+    latitude: number;
+    longitude: number;
+    imageUrls?: Array<string>;
+    sites: Array<Site>;
 }

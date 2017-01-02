@@ -1,5 +1,5 @@
-export interface ISite {
-    id: string;
+export interface Site {
+    id?: string;
     name: string;
-    sightings: string[];
+    sightings?: Array<string>;
 }

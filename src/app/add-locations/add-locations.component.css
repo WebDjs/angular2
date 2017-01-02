@@ -1,4 +1,8 @@
-#formContainer{
-    margin: auto;
-    width:300px;   
+
+
+.sebm-google-map-container {
+       height: 500px;
+       width: 700px;
+       position: absolute;
+       right: 300px;
 }

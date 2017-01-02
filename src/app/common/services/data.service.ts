@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
-import { ILog, ILocation, User } from 'app/common/models';
+import { Log, Location, User } from 'app/common/models';
 
 @Injectable()
 export class DataService {
@@ -27,14 +27,14 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    getAllLogs(): Observable<ILog[]> {
-       return this.getAll<ILog>(this._logsUrl);
+    getAllLogs(): Observable<Log[]> {
+       return this.getAll<Log>(this._logsUrl);
     }
 
-    getLogById(id: string): Observable<ILog> {
+    getLogById(id: string): Observable<Log> {
         // TODO: refactor to request the item directly
         return this.getAllLogs()
-            .map((diveLogs: ILog[]) => diveLogs.find(p => p.id === id));
+            .map((diveLogs: Log[]) => diveLogs.find(p => p.id === id));
     }
 
     getAllLocations(): any {
