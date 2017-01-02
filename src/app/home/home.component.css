@@ -3,6 +3,11 @@
   height:400px;
   overflow:hidden;
   border-radius:15px;
+  margin: auto;
+}
+
+h4{
+  text-align: center;
 }
 
 #gallery .slides{
@@ -23,4 +28,9 @@
 #gallery img{
   width:720px;
   height:400px;
+}
+
+article{
+  font-size: 20px;
+  margin: 50px 100px 50px 100px;
 }
