@@ -63,7 +63,8 @@ import { LocationsDetailComponent } from './locations/locations-detail.component
     AddLocationsComponent,
     LocationsDetailComponent,
     UserAddDiveComponent,
-    FilterPipe
+    FilterPipe,
+    SortingPipe
   ],
   imports: [
     BrowserModule,

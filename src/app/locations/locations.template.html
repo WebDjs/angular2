@@ -3,16 +3,21 @@
 </button></p>
 <h4>Dive Locations</h4>
 Search: <input type="text" class="form-control" placeholder="Search..." (input)="onInput($event)" />
+<div class="form-group col-md-4 col-md-offset-1">
+  <label for="sel2">Order:</label>
+  <select class="form-control" id="sel2" [(ngModel)]="sortingDirection">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+</div>
 <div>
-  <div class="mdl-grid mdl-grid--no-spacing" 
-    style="background-color:oldlace" 
-    *ngFor="let l of locations | collectionFilter:filterText ">
+  <div class="mdl-grid mdl-grid--no-spacing" style="background-color:oldlace" *ngFor="let l of locations | collectionFilter:filterText | SortingPipe:sortingProp:SortingDirection">
 <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
 <a href="/locationDetail/{{l._id}}">{{ l.name || "Unknown"}}
           </a>
 </div>
 <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.latitude}}</div>
-<div class="mdl-cell mdl-cell--2-col">&nbsp;longitude: {{l.longitude}}</div>
+<div class="mdl-cell mdl-cell--2-col">&nbsp;Longitude: {{l.longitude}}</div>
 <span *ngFor="let imageUrl of l.imageUrls">
          <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
 </span>

@@ -11,11 +11,15 @@ export class LocationComponent implements OnInit {
     locations: any[];
     errorMessage: string;
     private filterText: string;
+    private sortingProp: string;
+    private sortingDirection: string;
 
     constructor(private _diveLogsService: DataService) {
     }
 
     ngOnInit(): void {
+        this.sortingProp = 'name';
+        this.sortingDirection = 'asc';
         this._diveLogsService.getAllLocations()
             .subscribe(responce => this.locations = responce.data,
             error => this.errorMessage = <any>error);
