@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { SortingPipe, FilterPipe } from '../common/pipes/';
 import { DataService } from 'app/common/services/data.service';
 import 'rxjs/add/operator/map';
 
@@ -10,6 +11,7 @@ import 'rxjs/add/operator/map';
 export class LocationComponent implements OnInit {
     locations: any[];
     errorMessage: string;
+    private filterText: string;
 
     constructor(private _diveLogsService: DataService) {
     }
@@ -20,5 +22,7 @@ export class LocationComponent implements OnInit {
             error => this.errorMessage = <any>error);
     }
 
-    
+    onInput(e: any) {
+        this.filterText = e.target.value;
+    }
 }

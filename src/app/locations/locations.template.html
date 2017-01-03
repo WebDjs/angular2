@@ -2,16 +2,19 @@
   <i class="material-icons">+</i>
 </button></p>
 <h4>Dive Locations</h4>
+Search: <input type="text" class="form-control" placeholder="Search..." (input)="onInput($event)" />
 <div>
-<div class="mdl-grid mdl-grid--no-spacing" style="background-color:oldlace" *ngFor="let l of locations">
-       <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
-          <a href="/locationDetail/{{l._id}}">{{ l.name || "Unknown"}}
+  <div class="mdl-grid mdl-grid--no-spacing" 
+    style="background-color:oldlace" 
+    *ngFor="let l of locations | collectionFilter:filterText ">
+<div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
+<a href="/locationDetail/{{l._id}}">{{ l.name || "Unknown"}}
           </a>
-       </div>
-        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.latitude}}</div>
-        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.longitude}}</div>
-        <span *ngFor="let imageUrl of l.imageUrls">
+</div>
+<div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.latitude}}</div>
+<div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.longitude}}</div>
+<span *ngFor="let imageUrl of l.imageUrls">
          <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
-       </span>
+</span>
 </div>
 </div>

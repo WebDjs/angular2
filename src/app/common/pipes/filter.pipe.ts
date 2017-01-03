@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import { THE COLLECTION MODEL TO BE FILTERED } from './';
 
 @Pipe({
     name: 'collectionFilter'
