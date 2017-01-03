@@ -3,7 +3,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import { Location } from 'app/common/models';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-locations',
   templateUrl: './add-locations.component.html',
@@ -23,7 +23,7 @@ export class AddLocationsComponent implements OnInit {
     this.locationImageCount.push(ind + 1);
   }
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http, private router: Router,) { }
 
   ngOnInit() {
     this.newLocation = {
@@ -31,7 +31,8 @@ export class AddLocationsComponent implements OnInit {
       latitude: -8.690899,
       longitude: 115.433580,
       imageUrls: [],
-      sites: []
+      sites: [],
+      logs: []
     };
 
   }
@@ -47,7 +48,8 @@ export class AddLocationsComponent implements OnInit {
          JSON.stringify(newLocation),
          { headers: headers })
         .map(response => response.json())
-        .subscribe(response => console.log(response))
+        .subscribe(response =>  this.router.navigate(['/locations']));
+        // TODO: change to location detail
   }
 
   submit() {
@@ -59,6 +61,7 @@ export class AddLocationsComponent implements OnInit {
 
     this.newLocation.sites.push({ name: this.siteName });
     this.addLocations(this.newLocation);
+    
   }
 
   mapClicked($event) {
