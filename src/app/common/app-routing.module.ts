@@ -17,21 +17,14 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-   { path: 'adddive', component: UserAddDiveComponent },
-  { path: 'items', component: ItemsComponent, children: [
-    { path: 'featured/:id', component: FeaturedItemComponent }
-  ] },
+   { path: 'adddive', canActivate: [AuthGuard], component: UserAddDiveComponent },
   { path: 'logs', component: LogComponent },
   { path: 'locations', component: LocationComponent },
   { path: 'locationDetail/:id', component: LocationsDetailComponent },
-  { path: 'otheritems', canActivate: [AuthGuard], component: OtherItemsComponent, children: [
-    { path: 'featured/:id', component: FeaturedOtherItemComponent }
-  ]
-  },
-  { path: 'userprofile', component: UserComponent },
-  { path: 'userprofileedit/:id', component: UserEditComponent },
+  { path: 'userprofile', canActivate: [AuthGuard], component: UserComponent },
+  { path: 'userprofileedit/:id', canActivate: [AuthGuard], component: UserEditComponent },
   { path: 'contactus', component: ContactUsComponent },
-  { path: 'addlocations', component: AddLocationsComponent },
+  { path: 'addlocations', canActivate: [AuthGuard], component: AddLocationsComponent },
   { path: '**',     redirectTo: '', pathMatch: 'full' }
 ];
 
