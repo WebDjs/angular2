@@ -62,7 +62,8 @@ import { LocationsDetailComponent } from './locations/locations-detail.component
     FooterComponent,
     AddLocationsComponent,
     LocationsDetailComponent,
-    UserAddDiveComponent
+    UserAddDiveComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

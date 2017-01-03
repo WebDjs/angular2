@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { SortingPipe, FilterPipe } from '../common/pipes/';
 import { DataService } from 'app/common/services/data.service';
 import 'rxjs/add/operator/map';
 
