@@ -8,7 +8,7 @@ import { Log, Location, User } from 'app/common/models';
 @Injectable()
 export class DataService {
     private _logsUrl = 'app/common/logs.example.json';
-    private _locationsUrl = 'http://localhost:3000/api/locations/read';
+    public locationsUrl = 'http://localhost:3000/api/locations/read';
     private _usersUrl = 'app/common/users.example.json';
 
     constructor(private _http: Http) { }
@@ -19,10 +19,10 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    private getById<T>(id: string, url: string): Observable<T> {
-
-        return this._http.get(url)
-            .map((response: Response) => <T>response.json())
+    getLocationById(id: string): Observable<Location> {
+        let endpoint = this.locationsUrl + "/" + id;
+        return this._http.get(endpoint)
+            .map((response: Response) => <Location>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
@@ -38,7 +38,7 @@ export class DataService {
     }
 
     getAllLocations(): any {
-        return this.getAll(this._locationsUrl);
+        return this.getAll(this.locationsUrl);
     }
 
     getUserById(id: string): Observable<User>{

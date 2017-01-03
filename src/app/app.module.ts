@@ -33,6 +33,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AddLocationsComponent } from './add-locations/add-locations.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { SortingPipe, FilterPipe, PagingPipe } from './common/pipes';
+import { LocationsDetailComponent } from './locations/locations-detail.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SortingPipe, FilterPipe, PagingPipe } from './common/pipes';
     ContactDetailsComponent,
     ContactFormComponent,
     FooterComponent,
-    AddLocationsComponent
+    AddLocationsComponent,
+    LocationsDetailComponent
   ],
   imports: [
     BrowserModule,

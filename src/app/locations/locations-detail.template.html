@@ -1,0 +1,11 @@
+<div class="mdl-grid" style="background-color:oldlace" *ngIf='location' >
+       <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--4-col">
+          {{ location.name || "Unknown"}}
+       </div>
+        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{location.latitude}}</div>
+        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{location.longitude}}</div>
+        <span *ngFor="let imageUrl of location.imageUrls">
+         <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
+         </span>
+         <!--TODO: Bind with response ,add site & sightings, may be dive logs as well-->
+</div>

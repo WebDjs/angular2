@@ -19,4 +19,6 @@ export class LocationComponent implements OnInit {
             .subscribe(responce => this.locations = responce.data,
             error => this.errorMessage = <any>error);
     }
+
+    
 }

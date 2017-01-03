@@ -25,7 +25,6 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     this.currentUser = this.usersService.loggedUser();
-    console.log(this.currentUser);
   }
 
   ngDoCheck() {
