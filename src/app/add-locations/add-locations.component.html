@@ -14,13 +14,22 @@
           <h2 class="mdl-card__title-text">Add new location</h2>
         </div>
         
-          				<form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
           <div>
-            <span>Location Name: </span>
+            <span>Location Name:</span>
             <div class="mdl-textfield mdl-js-textfield">
               <input class="mdl-textfield__input" type="text" id="name" name="name" #name [(ngModel)]="newLocation.name">
               <label class="mdl-textfield__label" for="name">Enter name...</label>
             </div>
+          </div>
+
+          <div #locationPhotos>
+            <span>Location Photos:</span>
+            <div class="mdl-textfield mdl-js-textfield" *ngFor="let ind of locationImageCount">
+              <input class="mdl-textfield__input imageUrl" type="text" id="image{{ind}}" />
+              <label class="mdl-textfield__label" for="image{{ind}}">Enter image URL...</label>
+            </div>
+            <button type="button" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="addLocationImageInput()">Add another photo</button>
           </div>
 
           <div>
@@ -53,6 +62,8 @@
               <label class="mdl-textfield__label" for="site">Enter site name...</label>
             </div>
           </div>
+
+          
 
           <div class="mdl-card__actions mdl-card--border form-group">
             <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>

@@ -1,17 +1,17 @@
-<p><span>Add new location</span><button [routerLink]="['/addlocations']"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+<p><span>Add new location</span><button [routerLink]="['/addlocations']" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
   <i class="material-icons">+</i>
 </button></p>
-
-<div class="container-fluid">
-  <h1>Dive Locations</h1>
-  <div class="row">
-    <div style="color: red" class="col-sm-4 blocks" *ngFor="let l of locations">
-      <h3>{{l.name}}</h3>
-      <div style="color: green" *ngFor="let site of l.sites">
-        <i>{{site.name}}</i>
-        <ul style="color: blue">
-            <li *ngFor="let s of site.sightings">{{ s }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<h4>Dive Locations</h4>
+<div>
+<div class="mdl-grid mdl-grid--no-spacing" style="background-color:oldlace" *ngFor="let l of locations">
+       <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
+          <a href="/locationDetail/{{l._id}}">{{ l.name || "Unknown"}}
+          </a>
+       </div>
+        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.latitude}}</div>
+        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{l.longitude}}</div>
+        <span *ngFor="let imageUrl of l.imageUrls">
+         <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
+       </span>
+</div>
+</div>

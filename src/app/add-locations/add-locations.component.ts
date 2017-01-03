@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
@@ -12,9 +12,16 @@ import { Location } from 'app/common/models';
 export class AddLocationsComponent implements OnInit {
 
   private _locationsUrl = 'http://localhost:3000/api/locations/create';
+  private newLocation: Location;
+  private siteName: string;
 
-  newLocation: Location;
-  siteName: string;
+  @ViewChild('locationPhotos') locationPhotos: ElementRef;
+  private locationImageCount = [1];
+
+  addLocationImageInput() {
+    let ind = this.locationImageCount[this.locationImageCount.length - 1];
+    this.locationImageCount.push(ind + 1);
+  }
 
   constructor(private _http: Http) { }
 
@@ -44,6 +51,12 @@ export class AddLocationsComponent implements OnInit {
   }
 
   submit() {
+    this.locationPhotos.nativeElement
+        .querySelectorAll('.imageUrl')
+        .forEach(image => {
+          this.newLocation.imageUrls.push(image.value);
+        });
+
     this.newLocation.sites.push({ name: this.siteName });
     this.addLocations(this.newLocation);
   }
