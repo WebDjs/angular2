@@ -39,6 +39,7 @@ This is web application, where the scuba divers from all around the world can sh
 ## Features
 
 ### Registered users
+
 - Registered users can share their dive logs (site, depth, sightings etc.).
 - They can also add new locations that they have discovered and want to share with the community.
 
@@ -52,3 +53,9 @@ This is web application, where the scuba divers from all around the world can sh
 - Run NPM install
 - Run NPM start
 - The application will be runnable at http://localhost:4200/
+
+# Application showcase
+
+## Video
+
+http://www.screencast.com/t/AS07hXqFLJ
