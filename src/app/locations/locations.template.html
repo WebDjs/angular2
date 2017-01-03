@@ -11,7 +11,7 @@ Search: <input type="text" class="form-control" placeholder="Search..." (input)=
         </select>
 </div>
 <div>
-  <div class="mdl-grid mdl-grid--no-spacing" style="background-color:oldlace" *ngFor="let l of locations | collectionFilter:filterText | SortingPipe:sortingProp:SortingDirection">
+  <div class="mdl-grid mdl-grid--no-spacing" style="background-color:oldlace" *ngFor="let l of locations | collectionFilter:filterText | collectionSort:sortingProp:sortingDirection">
 <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
 <a href="/locationDetail/{{l._id}}">{{ l.name || "Unknown"}}
           </a>

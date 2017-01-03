@@ -15,8 +15,8 @@ export class SortingPipe implements PipeTransform {
             case 'name':
                 value.sort((a, b) => {
                     return direction === 'asc' ?
-                        a.Title.localeCompare(b.Title) :
-                        b.Title.localeCompare(a.Title);
+                        a.name.localeCompare(b.name) :
+                        b.name.localeCompare(a.name);
                 });
                 break;
             // case 'Rating':
