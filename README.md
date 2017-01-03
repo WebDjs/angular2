@@ -29,3 +29,26 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Project documentation
+
+## Overview
+
+This is web application, where the scuba divers from all around the world can share their experience, photos and the amazing locations they visited.
+
+## Features
+
+### Registered users
+- Registered users can share their dive logs (site, depth, sightings etc.).
+- They can also add new locations that they have discovered and want to share with the community.
+
+### Not registered users
+
+- They can check the shared locations, but they cannot edit them or add a new one.
+- They can also check the public dives that were shared.
+
+# Steps to run the application
+
+- Run NPM install
+- Run NPM start
+- The application will be runnable at http://localhost:4200/
