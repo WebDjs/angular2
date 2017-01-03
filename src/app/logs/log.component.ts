@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { DataService } from 'app/common/services/data.service';
+import { UsersService } from 'app/common/services';
 import 'rxjs/add/operator/map';
 import { Log } from 'app/common/models';
 
@@ -11,12 +11,10 @@ export class LogComponent implements OnInit {
     logs: Log[];
     errorMessage: string;
 
-    constructor(private _diveLogsService: DataService) {
+    constructor(private _diveLogsService: UsersService) {
     }
 
     ngOnInit(): void {
-        this._diveLogsService.getAllLogs()
-            .subscribe(logs => this.logs = logs,
-            error => this.errorMessage = <any>error);
+        this.logs = this._diveLogsService.loggedUser().logs;
     }
 }

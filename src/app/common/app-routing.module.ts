@@ -11,6 +11,7 @@ import { LocationsDetailComponent } from '../locations/locations-detail.componen
 import { UserComponent, UserEditComponent, UserAddDiveComponent } from '../user/';
 import { ContactUsComponent } from '../contact-us/';
 import { AddLocationsComponent } from '../add-locations/';
+import { AppLogsComponent } from '../app-logs/app-logs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,9 +19,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
    { path: 'adddive', canActivate: [AuthGuard], component: UserAddDiveComponent },
-  { path: 'logs', component: LogComponent },
+  { path: 'logs', canActivate: [AuthGuard], component: LogComponent },
+  { path: 'applogs', component: AppLogsComponent },
   { path: 'locations', component: LocationComponent },
-  { path: 'locationDetail/:id', component: LocationsDetailComponent },
+  { path: 'locations/:page', component: LocationComponent },
+  { path: 'locations/details/:id', component: LocationsDetailComponent },
   { path: 'userprofile', canActivate: [AuthGuard], component: UserComponent },
   { path: 'userprofileedit/:id', canActivate: [AuthGuard], component: UserEditComponent },
   { path: 'contactus', component: ContactUsComponent },

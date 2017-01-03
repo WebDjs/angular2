@@ -6,7 +6,7 @@
       <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/register']" [routerLinkActive]="['current-route']">Register</a>
       <a *ngIf="!existingUser" class="mdl-navigation__link" [routerLink]="['/login']" [routerLinkActive]="['current-route']">Login</a>
     <div *ngIf="existingUser">
-    <span  [routerLink]="['/userprofile']" [routerLinkActive]="['current-route']">Hello <span id="userName">{{this.existingUser.username}}</span></span>
+    <span [routerLink]="['/userprofile']" [routerLinkActive]="['current-route']">Hello <span id="userName">{{this.existingUser.username}}</span></span>
       <button (click)="logout()" [routerLink]="['/home']" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
         Logout
       </button>

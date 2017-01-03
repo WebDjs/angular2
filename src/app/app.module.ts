@@ -10,14 +10,16 @@ import {
   AppRoutingModule,
   AlertComponent,
   FooterComponent,
-  PagerComponent
+  PagerComponent,
+  DropDownComponent
 } from './common';
 import { HomeComponent } from './home/home.component';
+import { AppLogsComponent } from './app-logs/app-logs.component';
 import { ItemsComponent, FeaturedItemComponent } from './items';
 import { OtherItemsComponent, FeaturedOtherItemComponent } from './other-items';
 import { LoginComponent, RegisterComponent } from './login/';
 import { LogComponent } from './logs/log.component';
-import { LocationComponent } from './locations/locations.component';
+import { LocationComponent, LocationShortComponent, LocationsDetailComponent } from './locations/';
 import {
   AlertService,
   AuthenticationService,
@@ -34,8 +36,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AddLocationsComponent } from './add-locations/add-locations.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { SortingPipe, FilterPipe, PagingPipe } from './common/pipes';
-import { LocationsDetailComponent } from './locations/locations-detail.component';
 
+import {MyStylePlusDirective} from './app.mystyleplus';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { LocationsDetailComponent } from './locations/locations-detail.component
     ItemsComponent,
     LogComponent,
     LocationComponent,
+    LocationShortComponent,
     FeaturedItemComponent,
     OtherItemsComponent,
     FeaturedOtherItemComponent,
@@ -64,7 +67,12 @@ import { LocationsDetailComponent } from './locations/locations-detail.component
     LocationsDetailComponent,
     UserAddDiveComponent,
     FilterPipe,
-    SortingPipe
+    SortingPipe,
+    PagingPipe,
+    PagerComponent,
+    DropDownComponent,
+    MyStylePlusDirective,
+    AppLogsComponent
   ],
   imports: [
     BrowserModule,

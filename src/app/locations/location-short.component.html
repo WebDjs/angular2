@@ -1,0 +1,22 @@
+<td class="mdl-data-table__cell--non-numeric">
+    {{location.name || 'No Face, No Name...'}}
+</td>
+<td class="mdl-data-table__cell--non-numeric">
+    <sebm-google-map class="content mdl-grid--no-spacing"
+               [latitude]="location.latitude"
+               [longitude]="location.longitude"
+               (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker
+        [latitude]="location.latitude"
+       [longitude]="location.longitude">
+      </sebm-google-map-marker>              
+  </sebm-google-map>
+</td>
+<td class="mdl-data-table__cell--non-numeric">
+    <img src="assets/images/vector-dive-flag-and-diver-icon.jpg" *ngIf="!location.imageUrls.length" />
+    <img *ngFor="let imageUrl of location.imageUrls" src="{{imageUrl}} " />
+</td>
+<td class="mdl-data-table__cell--non-numeric">
+    <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        [routerLink]="['/locations/details/' + location._id]">DETAILS</a>
+</td>

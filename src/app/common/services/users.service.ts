@@ -5,17 +5,20 @@ import { AuthenticationService } from './authentication.service';
 
 @Injectable()
 export class UsersService {
+    private serverUrl: string;
 
     constructor(
         private http: Http,
-        private authenticationService: AuthenticationService) { }
+        private authenticationService: AuthenticationService) { 
+            this.serverUrl = 'http://divingguide-test.azurewebsites.net';
+        }
 
     create(user: User) {
         let headers = new Headers();
         headers.append('content-type', 'application/json');
 
         return this.http.post(
-            'http://localhost:3000/api/signup',
+            this.serverUrl + '/api/signup',
             JSON.stringify(user),
             { headers: headers })
             .map((response: Response) => {
@@ -36,7 +39,7 @@ export class UsersService {
         headers.append('authorization', token);
 
         return this.http.post(
-            'http://localhost:3000/api/updateUserInfo',
+            this.serverUrl + '/api/updateUserInfo',
             JSON.stringify(user),
             { headers: headers })
 
@@ -61,7 +64,7 @@ export class UsersService {
         headers.append('authorization', token);
 
         return this.http.post(
-            'http://localhost:3000/api/deleteUser',
+            this.serverUrl + '/api/deleteUser',
             username,
             { headers: headers })
             .subscribe((response: Response) => {

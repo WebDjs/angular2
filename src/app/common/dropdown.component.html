@@ -1,0 +1,8 @@
+<div class="mdl-list__item dd-header" (click)="toggleDropDown($event)">Select {{collectionType}}...</div>
+<ul class="demo-list-item mdl-list">
+  <li *ngFor="let item of collection" class="mdl-list__item" [class.selected]="item._id === selected" (click)="changeSelection(item._id)">
+    <span class="mdl-list__item-primary-content">
+      {{ item.name }}
+    </span>
+  </li>
+</ul>

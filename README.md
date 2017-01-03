@@ -1,4 +1,4 @@
-# TwSampleProject
+# DiveIn
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.22-1.
 
@@ -58,4 +58,4 @@ This is web application, where the scuba divers from all around the world can sh
 
 ## Video
 
-http://www.screencast.com/t/AS07hXqFLJ
+http://www.screencast.com/t/AS06hXqFLJ

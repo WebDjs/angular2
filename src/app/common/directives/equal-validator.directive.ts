@@ -2,7 +2,7 @@ import { Directive, forwardRef, Attribute } from '@angular/core';
 import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-    selector: '[validateEqual][formControlName], [validateEqual][formControl], [validateEqual][ngModel]', 
+    selector: '[validateEqual][formControlName], [validateEqual][formControl], [validateEqual][ngModel]',
     providers: [
         {
             provide: NG_VALIDATORS,
@@ -36,7 +36,7 @@ export class EqualValidatorDirective implements Validator {
         if (e && v !== e.value && !this.isReverse) {
             return {
                 validateEqual: false
-            }
+            };
         }
 
         // value equal and reverse

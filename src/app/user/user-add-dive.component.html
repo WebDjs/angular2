@@ -1,48 +1,62 @@
-<div class="template__preview mdl-cell mdl-cell--4-col">
-  <main class="mdl-layout__content">
-    <div class="mdl-card mdl-shadow--6dp">
-      <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-        <h2 class="mdl-card__title-text">Add new dive</h2>
+<div class="container">
+  <div class="template__preview mdl-cell mdl-cell--4-col custom">
+    <main class="mdl-layout__content">
+      <div class="mdl-card mdl-shadow--6dp">
+        <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+          <h2 class="mdl-card__title-text">Add new dive</h2>
+        </div>
+
+        <form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+          <div>
+            <span>Site Name:</span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="name" name="name" #name [(ngModel)]="newDive.site">
+              <label class="mdl-textfield__label" for="name">Enter name...</label>
+            </div>
+          </div>
+
+          <div>
+            <span>Sightings:</span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="sightings" name="sightings" #sightings [(ngModel)]="addSighting">
+              <label class="mdl-textfield__label" for="sightings">Enter sighting name separated by a comma...</label>
+            </div>
+          </div>
+
+          <div>
+            <span>Depth: </span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" name="depth" id="depth" [(ngModel)]="newDive.depth">
+              <label class="mdl-textfield__label" for="depth">Enter depth...</label>
+            </div>
+          </div>
+
+          <div>
+            <span>Time in minutes: </span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="time" name="time" [(ngModel)]="newDive.time">
+              <label class="mdl-textfield__label" for="time">Enter time...</label>
+            </div>
+          </div>
+          <div class="mdl-card__actions mdl-card--border form-group">
+            <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
+            <button type="button" (click)="submit()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Submit</button>
+            <button type="button" (click)="cancel()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cancel</button>
+          </div>
+        </form>
       </div>
-
-      <form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
-        <div>
-          <span>Site Name:</span>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="name" name="name" #name [(ngModel)]="newDive.name">
-            <label class="mdl-textfield__label" for="name">Enter name...</label>
-          </div>
-        </div>
-
-        <div>
-          <span>Sightings:</span>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="sightings" name="sightings" #sightings [(ngModel)]="newDive.sightings">
-            <label class="mdl-textfield__label" for="sightings">Enter sighting name...</label>
-          </div>
-        </div>
-
-        <div>
-          <span>Depth: </span>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" name="depth" id="depth" readonly [(ngModel)]="newDive.depth">
-            <label class="mdl-textfield__label" for="depth">Enter depth...</label>
-          </div>
-        </div>
-
-        <div>
-          <span>Time in minutes: </span>
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="time" name="time" readonly [(ngModel)]="newDive.time">
-            <label class="mdl-textfield__label" for="time">Enter time...</label>
-          </div>
-        </div>
-        <div class="mdl-card__actions mdl-card--border form-group">
-          <div *ngIf="loading" class="mdl-spinner mdl-js-spinner is-active"></div>
-          <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Submit</button>
-          <button type="button" (click)="cancel()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cancel</button>
-        </div>
-      </form>
+    </main>
+  </div>
+  <div class="dropdown-and-map">
+    <dropdownlist [collection]="locations" [collectionType]="'location name'" (itemSelected)="onSelectionChange($event)"></dropdownlist>
+    <div *ngIf="selectedLocation">
+      <p>Move the marker to select the exact dive site location</p>
+      <sebm-google-map class="content mdl-grid--no-spacing" [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude"
+        [mapDraggable]="false">
+        <sebm-google-map-marker [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude" [label]="selectedLocation.name"
+          [markerDraggable]="true" (dragEnd)="markerDragEnd($event)">
+        </sebm-google-map-marker>
+      </sebm-google-map>
     </div>
-  </main>
+  </div>
 </div>

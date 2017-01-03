@@ -1,0 +1,35 @@
+<div class="container">
+  <div>
+    <h4>Dive Locations</h4>
+    <button [routerLink]="['/addlocations']" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">+</i>
+    </button>
+    <h4>Add new location</h4>
+  </div>
+
+  Search: <input type="text" class="form-control" placeholder="Search..." (input)="onInput($event)" />
+  <div class="form-group col-md-4 col-md-offset-1">
+    <label for="sel2">Order:</label>
+    <select class="form-control" id="sel2" [(ngModel)]="sortingDirection">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+  </div>
+  <br />
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th class="mdl-data-table__cell--non-numeric">Coordinates</th>
+      <th class="mdl-data-table__cell--non-numeric">Images</th>
+    </thead>
+    <tbody>
+      <tr location-short *ngFor="let l of locations | collectionFilter:filterText | collectionSort:sortingProp:sortingDirection | collectionPaging:currentPage:pageSize"
+        [location]="l"></tr>
+    </tbody>
+    <tfoot>
+      <td class="mdl-data-table__cell--non-numeric" colspan="3">
+        <app-pager [numberOfPages]="numberOfPages" (pageChanged)="onPageChange($event)"></app-pager>
+      </td>
+    </tfoot>
+  </table>
+</div>

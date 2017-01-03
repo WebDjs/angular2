@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
     links = {
         logs: ['/logs'],
-        locations: ['/locations']
+        locations: ['/locations'],
+        applogs: ['/applogs']
     };
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 import { Location } from 'app/common/models';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-locations',
   templateUrl: './add-locations.component.html',
@@ -61,7 +62,6 @@ export class AddLocationsComponent implements OnInit {
 
     this.newLocation.sites.push({ name: this.siteName });
     this.addLocations(this.newLocation);
-    
   }
 
   mapClicked($event) {

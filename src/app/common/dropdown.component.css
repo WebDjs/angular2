@@ -1,0 +1,31 @@
+.demo-list-item {
+  width: 298px;
+  border: 1px solid #3f51b5;
+  border-top: none;
+  margin-top: 0px;
+  height: 200px;
+  overflow-y: scroll;
+  display: none;
+}
+
+.dd-header {
+    border: 1px solid #3f51b5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 300px;
+    padding-left: 20px;
+}
+
+.selected {
+    background-color: #3f51b5;
+    color: white;
+}
+
+li {
+    cursor: pointer;
+}
+
+li:not(.selected):hover {
+    background-color: #a7afda;
+}
+

@@ -1,11 +1,29 @@
-<div class="mdl-grid" style="background-color:oldlace" *ngIf='location' >
-       <div style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--4-col">
-          {{ location.name || "Unknown"}}
-       </div>
-        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{location.latitude}}</div>
-        <div class="mdl-cell mdl-cell--2-col">&nbsp;Latitude: {{location.longitude}}</div>
-        <span *ngFor="let imageUrl of location.imageUrls">
-         <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
-         </span>
-         <!--TODO: Bind with response ,add site & sightings, may be dive logs as well-->
+<div style="background-color:oldlace" *ngIf='location' >
+<div my-styleplus style="color:midnightblue; font:bold" class="mdl-cell mdl-cell--2-col">
+    <div> Name: {{ location.name || "Unknown"}}</div>
+      <div> Latitude: {{location.latitude}}</div>
+  <div>Longitude: {{location.longitude}}</div>
 </div>
+<div my-styleplus>
+<sebm-google-map class="content"
+               [latitude]="location.latitude"
+               [longitude]="location.longitude"
+               (mapClick)="mapClicked($event)">
+    <sebm-google-map-marker
+        [latitude]="location.latitude"
+       [longitude]="location.longitude">
+      </sebm-google-map-marker>              
+  </sebm-google-map>
+  </div>
+  <div my-styleplus>
+      <span class="img-container" *ngFor="let imageUrl of location.imageUrls">
+         <img src="{{imageUrl}}" style="width: 200px; height:190px;" />
+</span>
+  </div>
+<div my-styleplus *ngFor="let site of location.sites">
+         {{site.name}}
+         <ul *ngFor="let sighting of site.sightings">
+            <li>{{sighting}}</li>
+         </ul>
+ </div>
+<!--TODO: Bind with response ,add site & sightings, may be dive logs as well-->

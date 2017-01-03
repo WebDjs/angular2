@@ -20,7 +20,6 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.userData = this.usersService.loggedUser();
-    console.log(this.userData, "userData")
   }
 
   onStateChange(curState: UserState){
