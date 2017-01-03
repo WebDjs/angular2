@@ -5,7 +5,7 @@
         
         <span>Email address: </span>
         <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="email" id="emailAddress" />
+        <input class="mdl-textfield__input" type="email" id="emailAddress" #emailAddress/>
          <label class="mdl-textfield__label" for="emailAddress">Email...</label>
         </div>
         <p><span>Request: </span></p>
@@ -13,5 +13,9 @@
         <p><textarea class="mdl-textfield__input" type="text" rows="4" cols="50" id="testArea"></textarea>
         <label class="mdl-textfield__label" for="testArea">Text lines...</label></p>
         </div>
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" (click)='submit(emailAddress.value)'>
+  Submit
+</button>
     </form>
 </div>

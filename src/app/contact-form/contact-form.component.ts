@@ -12,4 +12,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(email: string) {
+      alert('Request is submitted to ' + email);
+  }
 }
