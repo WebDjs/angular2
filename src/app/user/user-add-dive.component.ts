@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAddDiveComponent implements OnInit {
 
+newDive: any;
   constructor() { }
 
   ngOnInit() {
+        this.newDive = {
+      site: '',
+      depth: 0,
+      time: 0,
+      sightings: [],
+      divedBy: 'testUser'
+    };
   }
 
 }
