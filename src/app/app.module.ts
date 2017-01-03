@@ -26,6 +26,7 @@ import {
 } from './common/services/';
 import { MDLUpgradeElementDirective, EqualValidatorDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
+import { UserAddDiveComponent } from './user/user-add-dive.component';
 import { UserEditComponent } from './user/user-edit.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
@@ -34,6 +35,7 @@ import { AddLocationsComponent } from './add-locations/add-locations.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { SortingPipe, FilterPipe, PagingPipe } from './common/pipes';
 import { LocationsDetailComponent } from './locations/locations-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { LocationsDetailComponent } from './locations/locations-detail.component
     ContactFormComponent,
     FooterComponent,
     AddLocationsComponent,
-    LocationsDetailComponent
+    LocationsDetailComponent,
+    UserAddDiveComponent
   ],
   imports: [
     BrowserModule,

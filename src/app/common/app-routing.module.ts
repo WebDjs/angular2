@@ -8,7 +8,7 @@ import { AuthGuard } from '../common/guards/';
 import { LogComponent } from '../logs/log.component';
 import { LocationComponent } from '../locations/locations.component';
 import { LocationsDetailComponent } from '../locations/locations-detail.component';
-import { UserComponent, UserEditComponent } from '../user/';
+import { UserComponent, UserEditComponent, UserAddDiveComponent } from '../user/';
 import { ContactUsComponent } from '../contact-us/';
 import { AddLocationsComponent } from '../add-locations/';
 
@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+   { path: 'adddive', component: UserAddDiveComponent },
   { path: 'items', component: ItemsComponent, children: [
     { path: 'featured/:id', component: FeaturedItemComponent }
   ] },
