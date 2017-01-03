@@ -17,6 +17,7 @@ export class LocationComponent implements OnInit {
     constructor(private _diveLogsService: DataService) {
     }
 
+    
     ngOnInit(): void {
         this.sortingProp = 'name';
         this.sortingDirection = 'asc';
