@@ -7,6 +7,7 @@ const express = require('express'),
   config = require('./server/config/database'), // get db config file
   UserModel = require('./server/data/models/User'),
   LocationModel = require('./server/data/models/Location'),
+  path = require('path'),
   port = process.env.PORT || 3000;
 
 // Allow CORS
@@ -16,8 +17,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('./uploads', express.static('./uploads'));  
-app.use(express.static('./uploads')); 
+app.use(express.static(path.join(__dirname, 'dist')))
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));

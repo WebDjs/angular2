@@ -9,8 +9,8 @@ export class UsersService {
 
     constructor(
         private http: Http,
-        private authenticationService: AuthenticationService) { 
-            this.serverUrl = 'http://divingguide-test.azurewebsites.net';
+        private authenticationService: AuthenticationService) {
+            this.serverUrl = '/api';
         }
 
     create(user: User) {
@@ -18,7 +18,7 @@ export class UsersService {
         headers.append('content-type', 'application/json');
 
         return this.http.post(
-            this.serverUrl + '/api/signup',
+            this.serverUrl + '/signup',
             JSON.stringify(user),
             { headers: headers })
             .map((response: Response) => {
@@ -39,7 +39,7 @@ export class UsersService {
         headers.append('authorization', token);
 
         return this.http.post(
-            this.serverUrl + '/api/updateUserInfo',
+            this.serverUrl + '/updateUserInfo',
             JSON.stringify(user),
             { headers: headers })
 
@@ -64,7 +64,7 @@ export class UsersService {
         headers.append('authorization', token);
 
         return this.http.post(
-            this.serverUrl + '/api/deleteUser',
+            this.serverUrl + '/deleteUser',
             username,
             { headers: headers })
             .subscribe((response: Response) => {

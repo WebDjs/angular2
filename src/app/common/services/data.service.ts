@@ -3,14 +3,13 @@ import { Http, Response, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs';
-import { Log, Location, User } from 'app/common/models';
+import { Log, Location, User } from '../models/';
 
 @Injectable()
 export class DataService {
-    private _logsUrl = 'http://divingguide-test.azurewebsites.net/api/logs/read';
-    public locationsUrl = 'http://divingguide-test.azurewebsites.net/api/locations/read';
-    private _usersUrl = 'app/common/users.example.json';
-    public locationsUpdateUrl = 'http://divingguide-test.azurewebsites.net/api/locations/update';
+    private _logsUrl = '/api/logs/read';
+    public locationsUrl = '/api/locations/read';
+    public locationsUpdateUrl = '/api/locations/update';
 
     constructor(private _http: Http) { }
 
@@ -21,7 +20,7 @@ export class DataService {
     }
 
     getLocationById(id: string): Observable<Location> {
-        let endpoint = this.locationsUrl + "/" + id;
+        let endpoint = this.locationsUrl + '/' + id;
         return this._http.get(endpoint)
             .map((response: Response) => {
                 let location: Location = response.json().data[0];
@@ -43,12 +42,6 @@ export class DataService {
 
     getAllLocations(): any {
         return this.getAll(this.locationsUrl);
-    }
-
-    getUserById(id: string): Observable<User> {
-        console.log('get all', this.getAll<User>(this._usersUrl));
-        return this.getAll<User>(this._usersUrl)
-            .map((users: User[]) => users.find(p => p.id === id));
     }
 
     private handleError(error: Response) {

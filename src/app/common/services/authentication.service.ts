@@ -14,7 +14,7 @@ export class AuthenticationService {
         headers.append('content-type', 'application/json');
 
         return this.http.post(
-            'http://divingguide-test.azurewebsites.net/api/authenticate',
+            '/api/authenticate',
             JSON.stringify({ username: username, password: password }),
             { headers: headers })
             .map((response: Response) => {

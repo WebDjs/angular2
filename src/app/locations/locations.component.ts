@@ -49,7 +49,6 @@ export class LocationComponent implements OnInit {
     }
 
     onPageChange(page: number) {
-        console.log(this.route.snapshot.params['page']);
         this.currentPage = this.route.snapshot.params['page'];
     }
 }

@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-locations.component.css']
 })
 export class AddLocationsComponent implements OnInit {
-
-  private _locationsUrl = 'http://divingguide-test.azurewebsites.net/api/locations/create';
+  // TODO: use service of some sort
+  private _locationsUrl = '/api/locations/create';
   private newLocation: Location;
   private siteName: string;
 
