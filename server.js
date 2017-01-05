@@ -29,11 +29,6 @@ app.use(morgan('dev'));
 // Use the passport package in our application
 app.use(passport.initialize());
  
-// demo Route (GET http://localhost:3000)
-app.get('/', function(req, res) {
-  res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
-
 // connect to database
 mongoose.connect(config.database);
 UserModel.init();
@@ -48,13 +43,13 @@ let apiRoutes = express.Router();
 let usersController = require('./server/controllers/UsersController');
 // get user by id
 apiRoutes.get('/users/:id', usersController.getById);
-// create a new user account (POST http://localhost:3000/api/signup)
+// create a new user account (POST /api/signup)
 apiRoutes.post('/signup', usersController.postRegister);
-// log in and get a token (POST http://localhost:3000/api/authenticate)
+// log in and get a token (POST /api/authenticate)
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
-// update existing user (POST http://localhost:3000/api/updateUserInfo)
+// update existing user (POST /api/updateUserInfo)
 apiRoutes.post('/updateUserInfo', passport.authenticate('jwt', { session: false }), usersController.postUpdate);
-// delete existing user (POST http://localhost:3000/api/deleteUser)
+// delete existing user (POST /api/deleteUser)
 apiRoutes.post('/deleteUser', passport.authenticate('jwt', { session: false }), usersController.postDelete);
 
 let locationsController = require('./server/controllers/LocationsController');
