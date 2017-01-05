@@ -28,7 +28,7 @@ export class LocationComponent implements OnInit {
             .subscribe((page) => {
                 this.currentPage = page;
             });
-        this.currentPage = 1;
+        this.currentPage = this.route.snapshot.params['page'] || 1;
         this.sortingProp = 'name';
         this.sortingDirection = 'asc';
         this.pageSize = 5;
