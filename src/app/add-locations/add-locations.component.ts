@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AddLocationsComponent implements OnInit {
 
-  private _locationsUrl = 'http://localhost:3000/api/locations/create';
+  private _locationsUrl = 'http://divingguide-test.azurewebsites/api/locations/create';
   private newLocation: Location;
   private siteName: string;
 

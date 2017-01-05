@@ -1,0 +1,10 @@
+{
+    "typescript.check.workspaceVersion": false,
+    "eslint.options": {
+        "env": {
+            "browser": true,
+            "node": true,
+            "es6": true
+        }
+    }
+}
