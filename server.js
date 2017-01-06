@@ -17,7 +17,18 @@ app.use(function(req, res, next) {
   next();
 });
 
+// serve dist folder, html, and files as static, and the /api routes as is
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(function(req, res, next){
+  let accept = req.accepts('html', 'json', 'xml'),
+    ext = path.extname(req.path);
+
+  if(accept !== 'html' || ext !== '' || req.path.startsWith('/api/')) {
+    return next();
+  }
+
+  res.sendFile(path.join(__dirname, 'dist') + '/index.html');
+});
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
