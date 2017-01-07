@@ -24,7 +24,8 @@ import {
   AlertService,
   AuthenticationService,
   UsersService,
-  DataService
+  DataService,
+  LocationService
 } from './common/services/';
 import { MDLUpgradeElementDirective, EqualValidatorDirective } from './common/directives/';
 import { UserComponent } from './user/user.component';
@@ -87,6 +88,7 @@ import {MyStylePlusDirective} from './app.mystyleplus';
     AlertService,
     AuthenticationService,
     UsersService,
+    LocationService,
     DataService
   ],
   bootstrap: [AppComponent]

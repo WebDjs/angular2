@@ -8,13 +8,12 @@ import { Log } from 'app/common/models';
     templateUrl: 'app/logs/log.template.html'
 })
 export class LogComponent implements OnInit {
-    logs: Log[];
-    errorMessage: string;
+    public logs: Log[];
 
-    constructor(private _diveLogsService: UsersService) {
-    }
+    constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
-        this.logs = this._diveLogsService.loggedUser().logs;
+        //TODO: may be request from data base?
+        this.logs = this.usersService.loggedUser().logs;
     }
 }

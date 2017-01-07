@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-   { path: 'adddive', canActivate: [AuthGuard], component: UserAddDiveComponent },
+  { path: 'adddive', canActivate: [AuthGuard], component: UserAddDiveComponent },
   { path: 'logs', canActivate: [AuthGuard], component: LogComponent },
   { path: 'applogs', component: AppLogsComponent },
   { path: 'locations/details/:id', component: LocationsDetailComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'userprofileedit/:id', canActivate: [AuthGuard], component: UserEditComponent },
   { path: 'contactus', component: ContactUsComponent },
   { path: 'addlocations', canActivate: [AuthGuard], component: AddLocationsComponent },
-  { path: '**',     redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

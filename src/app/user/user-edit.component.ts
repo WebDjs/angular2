@@ -22,7 +22,6 @@ export class UserEditComponent {
   }
 
   submit(userData: User, isValid: boolean) {
-    console.log(userData ,"submit");
     if (isValid) {
       this._usersService.update(userData).subscribe((response: Response) => {
         this.stateChange.emit("read");

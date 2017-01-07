@@ -16,6 +16,22 @@
           </div>
 
           <div>
+            <span>Latitude: </span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" name="latitude" id="latitude" readonly [(ngModel)]="newSite.latitude">
+              <label class="mdl-textfield__label" for="latitude">Enter latitude...</label>
+            </div>
+          </div>
+
+          <div>
+            <span>Longitude: </span>
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="longitude" name="longitude" readonly [(ngModel)]="newSite.longitude" >
+              <label class="mdl-textfield__label" for="longitude">Enter longtide...</label>
+            </div>
+          </div>
+
+          <div>
             <span>Sightings:</span>
             <div class="mdl-textfield mdl-js-textfield">
               <input class="mdl-textfield__input" type="text" id="sightings" name="sightings" #sightings [(ngModel)]="addSighting">
@@ -50,7 +66,7 @@
   <div class="dropdown-and-map">
     <dropdownlist [collection]="locations" [collectionType]="'location name'" (itemSelected)="onSelectionChange($event)"></dropdownlist>
     <div *ngIf="selectedLocation">
-      <p>Move the marker to select the exact dive site location</p>
+      <strong>Move the marker to select the exact dive site location</strong>
       <sebm-google-map class="content mdl-grid--no-spacing" [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude"
         [mapDraggable]="false">
         <sebm-google-map-marker [latitude]="selectedLocation.latitude" [longitude]="selectedLocation.longitude" [label]="selectedLocation.name"

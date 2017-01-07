@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { DataService } from 'app/common/services/data.service';
+import { LocationService } from 'app/common/services/';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
     styleUrls: ['./locations.component.css']
 })
 export class LocationComponent implements OnInit {
-    locations: any[];
+    public locations: any[];
     public filterText: string;
     public sortingProp: string;
     public sortingDirection: string;
@@ -18,7 +18,7 @@ export class LocationComponent implements OnInit {
     public numberOfPages: number;
 
     constructor(
-        private _diveLogsService: DataService,
+        private locationService: LocationService,
         private router: Router,
         private route: ActivatedRoute) { }
 
@@ -33,12 +33,12 @@ export class LocationComponent implements OnInit {
         this.sortingDirection = 'asc';
         this.pageSize = 5;
         this.numberOfPages = 4;
-        this._diveLogsService.getAllLocations()
+        this.locationService.getAllLocations()
             .subscribe(response => {
-            this.locations = response.data;
-            this.locations = this.locations.filter(l => !!l.name.length);
-            this.numberOfPages = Math.ceil(this.locations.length / this.pageSize);
-        });
+                this.locations = response.data;
+                this.locations = this.locations.filter(l => !!l.name.length);
+                this.numberOfPages = Math.ceil(this.locations.length / this.pageSize);
+            });
     }
 
     onInput(e: any) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, UsersService } from 'app/common/services';
+import { LocationService, UsersService } from 'app/common/services';
 import { Log, Location, User, Site } from 'app/common/models';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-add-dive.component.css']
 })
 export class UserAddDiveComponent implements OnInit {
-  newDive: Log = {
+
+  public newDive: Log = {
     site: '',
     location: '',
     depth: 0,
@@ -18,42 +19,40 @@ export class UserAddDiveComponent implements OnInit {
     sightings: []
   };
 
-  locations: Array<Location>;
-  selectedLocation: Location;
-  user: User;
-  sightings: Array<string>;
-  newSite: Site;
-  addSighting: string;
-  mapZoom: number;
+  public locations: Array<Location>;
+  public selectedLocation: Location;
+  public user: User;
+  public sightings: Array<string>;
+  public newSite: Site;
+  public addSighting: string;
+  public mapZoom: number;
+
+  constructor(
+    private usersService: UsersService,
+    private locationService: LocationService,
+    private router: Router) { }
+
+  ngOnInit() {
+    this.newSite = { latitude: 0, longitude: 0, name: '' };
+    this.sightings = [];
+    this.user = this.usersService.loggedUser();
+    this.mapZoom = 12;
+    this.locationService.getAllLocations()
+      .subscribe(response => {
+        this.locations = response.data;
+        this.locations = this.locations.filter(l => !!l.name.length);
+      });
+  }
 
   onLocationClick(ev: any) {
     let id: string = ev.target.id;
     this.selectedLocation = this.locations.find(l => l._id === id);
-
     this.newDive.location = this.selectedLocation.name;
   }
 
   onSelectionChange(id) {
     this.selectedLocation = this.locations.find(l => l._id === id);
-
     this.newDive.location = this.selectedLocation.name;
-  }
-
-  constructor(
-    private _usersService: UsersService,
-    private _dataService: DataService,
-    private router: Router) { }
-
-  ngOnInit() {
-    this.newSite =  { latitude: 0, longitude: 0, name: '' };
-    this.sightings = [];
-    this.user = this._usersService.loggedUser();
-    this.mapZoom = 12;
-    this._dataService.getAllLocations()
-      .subscribe(response => {
-      this.locations = response.data;
-      this.locations = this.locations.filter(l => !!l.name.length);
-    });
   }
 
   markerDragEnd($event) {
@@ -65,25 +64,17 @@ export class UserAddDiveComponent implements OnInit {
     let sightingsToAdd = this.addSighting.split(',');
     this.newSite.name = this.newDive.site;
     this.newSite.sightings = sightingsToAdd;
-    this.updateLocation(this.newSite, this.newDive);
-    this.addDive(this.newDive);
+    this.selectedLocation.sites.push(this.newSite);
+    this.selectedLocation.logs.push(this.newDive);
+    this.locationService.updateLocation(this.selectedLocation)
+      .subscribe(response => this.addDive(this.newDive));
   }
 
   addDive(dive) {
-    let user = this._usersService.loggedUser();
+    let user = this.usersService.loggedUser();
     user.logs.push(dive);
-    this._usersService.update(user).subscribe((response: Response) => {
-        this.router.navigate(['/logs'])
-    });
-  }
-
-  updateLocation(site, log){
-    this.selectedLocation.sites.push(site);
-    this.selectedLocation.logs.push(log);
-    console.log(this.selectedLocation)
-    this._dataService.updateLocation(this.selectedLocation)
-        .subscribe((response: Response) => {
-        console.log('updateLocation', response);
+    this.usersService.update(user).subscribe((response: Response) => {
+      this.router.navigate(['/logs'])
     });
   }
 }
